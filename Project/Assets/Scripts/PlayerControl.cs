@@ -34,9 +34,9 @@ public class PlayerControl : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag.Equals("Piano"))
+		if (other.tag.Equals("Node"))
 		{
-			SoundController.instance.PlaySound(Int32.Parse(other.name));
+			SoundController.instance.PlaySound(other.name);
 			Destroy(other.gameObject);
 		}
 	}

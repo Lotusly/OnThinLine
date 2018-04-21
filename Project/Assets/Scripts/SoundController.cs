@@ -34,4 +34,10 @@ public class SoundController : MonoBehaviour
 		sources[0].clip = Resources.Load<AudioClip>("piano" + i.ToString());
 		sources[0].Play();
 	}
+
+	public void PlaySound(string s)
+	{
+		sources[0].clip = Resources.Load<AudioClip>(s);
+		sources[0].Play();
+	}
 }
