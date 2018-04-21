@@ -11,7 +11,7 @@ public class NodeGenerator : MonoBehaviour
 
 	[SerializeField] private float tempo;
 
-	[SerializeField] private Vector2[] place; // last : pitch
+	[SerializeField] private Vector3[] place; // last : pitch
 
 	[SerializeField] private Transform parent;
 	// Use this for initialization
@@ -22,9 +22,10 @@ public class NodeGenerator : MonoBehaviour
 		for (int i = 0; i < l; i++)
 		{
 			Vector3 position;
-			position = Vector3.right * t* moveSpeed / tempo * 60;
+			position = Vector3.right * t* moveSpeed / tempo * 60 + 0.7f*Vector3.up*place[i].z;
 			t = t + place[i].x;
-			Instantiate(node, position, Quaternion.identity, parent);
+			GameObject newNode = Instantiate(node, position, Quaternion.identity, parent);
+			newNode.name = place[i].y.ToString();
 		}
 	}
 	

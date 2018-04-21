@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,5 +30,14 @@ public class PlayerControl : MonoBehaviour
 		history.positionCount++;
 		history.SetPosition(history.positionCount-1,transform.position);
 	
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag.Equals("Piano"))
+		{
+			SoundController.instance.PlaySound(Int32.Parse(other.name));
+			Destroy(other.gameObject);
+		}
 	}
 }

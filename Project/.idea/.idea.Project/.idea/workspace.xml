@@ -12,16 +12,18 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PlayerControl.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayerControl.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            <state relative-caret-position="819">
+              <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
               <folding>
-                <marker date="1524338404343" expanded="true" signature="6:78" ph="..." />
-                <marker date="1524338404343" expanded="true" signature="125:752" ph="{...}" />
-                <marker date="1524338404343" expanded="true" signature="293:355" ph="{...}" />
-                <marker date="1524338404343" expanded="true" signature="409:750" ph="{...}" />
+                <marker date="1524345688571" expanded="true" signature="6:92" ph="..." />
+                <marker date="1524345688571" expanded="true" signature="139:945" ph="{...}" />
+                <marker date="1524345688571" expanded="true" signature="307:369" ph="{...}" />
+                <marker date="1524345688571" expanded="true" signature="423:764" ph="{...}" />
+                <marker date="1524345688571" expanded="true" signature="802:943" ph="{...}" />
+                <marker date="1524345688571" expanded="true" signature="838:940" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -46,32 +48,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NodeGenerator.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NodeGenerator.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/NodeGenerator.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="483">
               <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding>
-                <marker date="1524340052851" expanded="false" signature="6:78" ph="..." />
-                <marker date="1524340052851" expanded="true" signature="122:713" ph="{...}" />
-                <marker date="1524340052851" expanded="true" signature="404:649" ph="{...}" />
-                <marker date="1524340052851" expanded="true" signature="476:646" ph="{...}" />
-                <marker date="1524340052851" expanded="true" signature="704:711" ph="{...}" />
+                <marker date="1524345601081" expanded="false" signature="6:78" ph="..." />
+                <marker date="1524345601081" expanded="true" signature="122:804" ph="{...}" />
+                <marker date="1524345601081" expanded="true" signature="404:740" ph="{...}" />
+                <marker date="1524345601081" expanded="true" signature="476:737" ph="{...}" />
+                <marker date="1524345601081" expanded="true" signature="795:802" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Track.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Track.cs">
+      <file leaf-file-name="MyWindow.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MyWindow.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            <state relative-caret-position="737">
+              <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
               <folding>
-                <marker date="1524330140439" expanded="false" signature="6:78" ph="..." />
-                <marker date="1524330140439" expanded="true" signature="114:325" ph="{...}" />
-                <marker date="1524330140439" expanded="true" signature="254:261" ph="{...}" />
-                <marker date="1524330140439" expanded="true" signature="316:323" ph="{...}" />
+                <marker date="1524344246977" expanded="true" signature="8:39" ph="..." />
+                <marker date="1524344246977" expanded="true" signature="76:1448" ph="{...}" />
+                <marker date="1524344246977" expanded="true" signature="397:550" ph="{...}" />
+                <marker date="1524344246977" expanded="true" signature="565:1183" ph="{...}" />
+                <marker date="1524344246977" expanded="true" signature="571:934" ph="/* GUILayout.Label(&quot;Base Settings&quot;, EditorStyles.boldLabel); ... */" />
+                <marker date="1524344246977" expanded="true" signature="1201:1446" ph="{...}" />
+                <marker date="1524344246977" expanded="true" signature="1273:1443" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -81,17 +86,18 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NodeGenerator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Track.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SoundController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MyWindow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Track.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SoundController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MyWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NodeGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs" />
       </list>
     </option>
   </component>
@@ -187,12 +193,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524326236500</updated>
-      <workItem from="1524326240621" duration="6135000" />
+      <workItem from="1524326240621" duration="9513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6135000" />
+    <option name="totallyTimeSpent" value="9513000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -244,24 +250,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <marker date="1524330140439" expanded="false" signature="6:78" ph="..." />
-            <marker date="1524330140439" expanded="true" signature="114:325" ph="{...}" />
-            <marker date="1524330140439" expanded="true" signature="254:261" ph="{...}" />
-            <marker date="1524330140439" expanded="true" signature="316:323" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MyWindow.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        <state relative-caret-position="737">
+          <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
           <folding>
-            <marker date="1524338404343" expanded="true" signature="6:78" ph="..." />
-            <marker date="1524338404343" expanded="true" signature="125:752" ph="{...}" />
-            <marker date="1524338404343" expanded="true" signature="293:355" ph="{...}" />
-            <marker date="1524338404343" expanded="true" signature="409:750" ph="{...}" />
+            <marker date="1524344246977" expanded="true" signature="8:39" ph="..." />
+            <marker date="1524344246977" expanded="true" signature="76:1448" ph="{...}" />
+            <marker date="1524344246977" expanded="true" signature="397:550" ph="{...}" />
+            <marker date="1524344246977" expanded="true" signature="565:1183" ph="{...}" />
+            <marker date="1524344246977" expanded="true" signature="571:934" ph="/* GUILayout.Label(&quot;Base Settings&quot;, EditorStyles.boldLabel); ... */" />
+            <marker date="1524344246977" expanded="true" signature="1201:1446" ph="{...}" />
+            <marker date="1524344246977" expanded="true" signature="1273:1443" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -288,11 +292,26 @@
         <state relative-caret-position="483">
           <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding>
-            <marker date="1524340052851" expanded="false" signature="6:78" ph="..." />
-            <marker date="1524340052851" expanded="true" signature="122:713" ph="{...}" />
-            <marker date="1524340052851" expanded="true" signature="404:649" ph="{...}" />
-            <marker date="1524340052851" expanded="true" signature="476:646" ph="{...}" />
-            <marker date="1524340052851" expanded="true" signature="704:711" ph="{...}" />
+            <marker date="1524345601081" expanded="false" signature="6:78" ph="..." />
+            <marker date="1524345601081" expanded="true" signature="122:804" ph="{...}" />
+            <marker date="1524345601081" expanded="true" signature="404:740" ph="{...}" />
+            <marker date="1524345601081" expanded="true" signature="476:737" ph="{...}" />
+            <marker date="1524345601081" expanded="true" signature="795:802" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+          <folding>
+            <marker date="1524345688571" expanded="true" signature="6:92" ph="..." />
+            <marker date="1524345688571" expanded="true" signature="139:945" ph="{...}" />
+            <marker date="1524345688571" expanded="true" signature="307:369" ph="{...}" />
+            <marker date="1524345688571" expanded="true" signature="423:764" ph="{...}" />
+            <marker date="1524345688571" expanded="true" signature="802:943" ph="{...}" />
+            <marker date="1524345688571" expanded="true" signature="838:940" ph="{...}" />
           </folding>
         </state>
       </provider>
