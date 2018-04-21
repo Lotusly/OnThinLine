@@ -34,8 +34,9 @@ public class PlayerControl : MonoBehaviour
 		
 		//--------------2 dimensional control speed----------------------------
 		Vector3 speed;
-		speed=new Vector2((Input.GetAxis("Vertical")-original-transform.localPosition.y),Input.GetAxis("Horizontal")-transform.localPosition.x)*sinsitive;
-		transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.right*Time.deltaTime*speed.y;
+		speed=new Vector2((Input.GetAxis("Vertical")-original-transform.localPosition.y),Input.GetAxis("Horizontal")-transform.localPosition.z)*sinsitive;
+		transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.forward*Time.deltaTime*speed.y;
+		transform.LookAt(transform.position-new Vector3(3,speed.x,speed.y));
 		//-----------------end-------------------------------------------
 		
 		//--------------------control position-----------------------------------

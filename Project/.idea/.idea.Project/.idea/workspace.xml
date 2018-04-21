@@ -15,17 +15,17 @@
       <file leaf-file-name="PlayerControl.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="42" column="73" lean-forward="false" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+            <state relative-caret-position="798">
+              <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
               <folding>
-                <marker date="1524347277607" expanded="true" signature="6:92" ph="..." />
-                <marker date="1524347277607" expanded="true" signature="139:1653" ph="{...}" />
-                <marker date="1524347277607" expanded="true" signature="307:369" ph="{...}" />
-                <marker date="1524347277607" expanded="true" signature="423:1486" ph="{...}" />
-                <marker date="1524347277607" expanded="true" signature="432:818" ph="/* ----------------1 dimensional control speed----------------------- ... */" />
-                <marker date="1524347277607" expanded="true" signature="1094:1387" ph="/* -----------------end------------------------------------------- ... */" />
-                <marker date="1524347277607" expanded="true" signature="1524:1651" ph="{...}" />
-                <marker date="1524347277607" expanded="true" signature="1559:1648" ph="{...}" />
+                <marker date="1524348701914" expanded="true" signature="6:92" ph="..." />
+                <marker date="1524348701914" expanded="true" signature="139:1726" ph="{...}" />
+                <marker date="1524348701914" expanded="true" signature="307:369" ph="{...}" />
+                <marker date="1524348701914" expanded="true" signature="423:1559" ph="{...}" />
+                <marker date="1524348701914" expanded="true" signature="432:818" ph="/* ----------------1 dimensional control speed----------------------- ... */" />
+                <marker date="1524348701914" expanded="true" signature="1167:1460" ph="/* -----------------end------------------------------------------- ... */" />
+                <marker date="1524348701914" expanded="true" signature="1597:1724" ph="{...}" />
+                <marker date="1524348701914" expanded="true" signature="1632:1721" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -215,12 +215,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524326236500</updated>
-      <workItem from="1524326240621" duration="11484000" />
+      <workItem from="1524326240621" duration="13090000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11484000" />
+    <option name="totallyTimeSpent" value="13090000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -341,17 +341,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="42" column="73" lean-forward="false" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+        <state relative-caret-position="798">
+          <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
           <folding>
-            <marker date="1524347277607" expanded="true" signature="6:92" ph="..." />
-            <marker date="1524347277607" expanded="true" signature="139:1653" ph="{...}" />
-            <marker date="1524347277607" expanded="true" signature="307:369" ph="{...}" />
-            <marker date="1524347277607" expanded="true" signature="423:1486" ph="{...}" />
-            <marker date="1524347277607" expanded="true" signature="432:818" ph="/* ----------------1 dimensional control speed----------------------- ... */" />
-            <marker date="1524347277607" expanded="true" signature="1094:1387" ph="/* -----------------end------------------------------------------- ... */" />
-            <marker date="1524347277607" expanded="true" signature="1524:1651" ph="{...}" />
-            <marker date="1524347277607" expanded="true" signature="1559:1648" ph="{...}" />
+            <marker date="1524348701914" expanded="true" signature="6:92" ph="..." />
+            <marker date="1524348701914" expanded="true" signature="139:1726" ph="{...}" />
+            <marker date="1524348701914" expanded="true" signature="307:369" ph="{...}" />
+            <marker date="1524348701914" expanded="true" signature="423:1559" ph="{...}" />
+            <marker date="1524348701914" expanded="true" signature="432:818" ph="/* ----------------1 dimensional control speed----------------------- ... */" />
+            <marker date="1524348701914" expanded="true" signature="1167:1460" ph="/* -----------------end------------------------------------------- ... */" />
+            <marker date="1524348701914" expanded="true" signature="1597:1724" ph="{...}" />
+            <marker date="1524348701914" expanded="true" signature="1632:1721" ph="{...}" />
           </folding>
         </state>
       </provider>
