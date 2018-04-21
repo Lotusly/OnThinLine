@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf85e71e3753c4f40924b1adbc75f088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 3
 --- !u!4 &848537830
 Transform:
   m_ObjectHideFlags: 0
@@ -763,8 +763,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1357642632679872, guid: 6a127e7c0cd821048964bec24ea8e9b7, type: 2}
-  moveSpeed: 5
-  tempo: 90
+  moveSpeed: 3
+  tempo: 81
   place:
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: 2, z: 0}
@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   history: {fileID: 277847280}
-  sinsitive: 7.5
+  sinsitive: 6.5
 --- !u!96 &1682983392
 TrailRenderer:
   serializedVersion: 2
@@ -1304,7 +1304,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:

@@ -24,9 +24,23 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		float speed = sinsitive * (Input.GetAxis("Vertical")-original-transform.localPosition.y);
-		transform.localPosition += Vector3.up * Time.deltaTime * speed;
+		
+		//----------------1 dimensional control speed-----------------------
+		
+		//float speed;
+		//speed=sinsitive * (Input.GetAxis("Vertical")-original-transform.localPosition.y);
+		//transform.localPosition += Vector3.up * Time.deltaTime * speed;
+		//-----------------------end------------------------------------
+		
+		//--------------2 dimensional control speed----------------------------
+		Vector3 speed;
+		speed=new Vector2((Input.GetAxis("Vertical")-original-transform.localPosition.y),Input.GetAxis("Horizontal")-transform.localPosition.x)*sinsitive;
+		transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.right*Time.deltaTime*speed.y;
+		//-----------------end-------------------------------------------
+		
+		//--------------------control position-----------------------------------
 		//transform.localPosition = Vector3.up * (Input.GetAxis("Vertical")-original);
+		//-----------------end-------------------------------------------
 		history.positionCount++;
 		history.SetPosition(history.positionCount-1,transform.position);
 	

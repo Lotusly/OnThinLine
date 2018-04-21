@@ -24,7 +24,8 @@ public class NodeGenerator : MonoBehaviour
 		for (int i = 0; i < l; i++)
 		{
 			Vector3 position;
-			position = Vector3.right * t* moveSpeed / tempo * 60 + 0.7f*Vector3.up*place[i].z;
+			//position = Vector3.right * t* moveSpeed / tempo * 60 + 0.7f*Vector3.up*place[i].z;
+			position = Vector3.right * t* moveSpeed / tempo * 60 + 0.7f*Vector3.up*(Mathf.Floor(Random.value*5)-2)*0.5f;
 			t = t + place[i].x;
 			GameObject newNode = Instantiate(node, position, Quaternion.identity, parent);
 			newNode.name = prefix+place[i].y.ToString();
