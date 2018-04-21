@@ -11,6 +11,8 @@ public class PlayerControl : MonoBehaviour
 	private float original;
 	[SerializeField] private LineRenderer history;
 
+	[SerializeField] private float sinsitive;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -21,7 +23,9 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		transform.localPosition = Vector3.up * (Input.GetAxis("Vertical")-original);
+		float speed = sinsitive * (Input.GetAxis("Vertical")-original-transform.localPosition.y);
+		transform.localPosition += Vector3.up * Time.deltaTime * speed;
+		//transform.localPosition = Vector3.up * (Input.GetAxis("Vertical")-original);
 		history.positionCount++;
 		history.SetPosition(history.positionCount-1,transform.position);
 	
