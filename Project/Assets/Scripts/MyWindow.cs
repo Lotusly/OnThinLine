@@ -1,5 +1,7 @@
 ﻿
 
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEditor;
 public class MyWindow : EditorWindow
@@ -10,15 +12,14 @@ public class MyWindow : EditorWindow
 
 	float tempo;
 
-	Vector2[] place; // last : pitch
+	[SerializeField]Vector3[] place; // last : pitch
 
 	private Transform parent;
-	
-	string myString = "Hello World";
-	bool groupEnabled;
-	bool myBool = true;
-	float myFloat = 1.23f;
 
+	//private int length;
+	private int temposOffset;
+
+	private string prefix;
 	// Add menu named "My Window" to the Window menu
 	[MenuItem("Window/My Window")]
 	static void Init()
@@ -28,32 +29,62 @@ public class MyWindow : EditorWindow
 		window.Show();
 	}
 
+	[SerializeField] protected List<Vector3> nodes = new List<Vector3>();
+	
+
+	protected SerializedObject _serializedObject;
+
+	protected SerializedProperty _assetLstProperty;
+
+
+	protected void OnEnable()
+	{
+		_serializedObject = new SerializedObject(this);
+		_assetLstProperty = _serializedObject.FindProperty("place");
+	}
+
 	void OnGUI()
 	{
-		/*GUILayout.Label("Base Settings", EditorStyles.boldLabel);
-		myString = EditorGUILayout.TextField("Text Field", myString);
-
-		groupEnabled = EditorGUILayout.BeginToggleGroup("Optional Settings", groupEnabled);
-		myBool = EditorGUILayout.Toggle("Toggle", myBool);
-		myFloat = EditorGUILayout.Slider("Slider", myFloat, -3, 3);
-		EditorGUILayout.EndToggleGroup();*/
+		_serializedObject.Update();
+		EditorGUI.BeginChangeCheck();
+		
 		node = EditorGUILayout.ObjectField("Node",node,typeof(GameObject),true) as GameObject;
+		parent = EditorGUILayout.ObjectField("Parent", parent, typeof(Transform), true) as Transform;
 		moveSpeed = EditorGUILayout.FloatField("MoveSpeed", moveSpeed);
 		tempo = EditorGUILayout.FloatField("Tempo", tempo);
-		//EditorGUILayout.PropertyField()
-
+		temposOffset = EditorGUILayout.IntField("Offset", temposOffset);
+		prefix = EditorGUILayout.TextField("Prefix", prefix);
+		EditorGUILayout.PropertyField(_assetLstProperty, true);
+		
+		//length = EditorGUILayout.IntField("Length", length);
+		if (GUILayout.Button("Generate"))
+		{
+			Generate();
+		}
+		
+		if (EditorGUI.EndChangeCheck())
+		{
+			_serializedObject.ApplyModifiedProperties();
+		}
 	}
 
 	void Generate()
 	{
-		float t = 0;
+	
+		float t = temposOffset;
 		int l = place.Length;
 		for (int i = 0; i < l; i++)
 		{
+			Debug.Log("Generated");
 			Vector3 position;
-			position = Vector3.right * t* moveSpeed / tempo * 60;
+			position = Vector3.right * t* moveSpeed / tempo * 60+Vector3.up*place[i].z;
 			t = t + place[i].x;
-			Instantiate(node, position, Quaternion.identity, parent);
+			GameObject newNode = Instantiate(node, position, Quaternion.identity, parent);
+			newNode.name = prefix+place[i].y.ToString();
+			//GameObject newNode = PrefabUtility.InstantiatePrefab(node) as GameObject;
+			//newNode.transform.position = position;
+			//newNode.transform.parent = parent;
 		}
+		
 	}
 }

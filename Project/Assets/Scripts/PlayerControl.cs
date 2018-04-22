@@ -28,6 +28,11 @@ public class PlayerControl : MonoBehaviour
 	{
 		
 		//----------------1 dimensional control speed-----------------------
+		Vector3 espectedSpeed=new Vector3(Input.GetAxis("Vertical")-original-transform.localPosition.y,0,0)*sinsitive;
+		speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
+		//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
+		transform.localPosition += Vector3.up * Time.deltaTime * speed.x ;
+		transform.LookAt(transform.position+new Vector3(-3,-speed.x,0));
 		
 		//float speed;
 		//speed=sinsitive * (Input.GetAxis("Vertical")-original-transform.localPosition.y);
@@ -35,12 +40,11 @@ public class PlayerControl : MonoBehaviour
 		//-----------------------end 1 dimensional control speed------------------------------------
 		
 		//--------------2 dimensional control speed----------------------------
-		Vector3 espectedSpeed=new Vector3(Input.GetAxis("Vertical")-original-transform.localPosition.y,Input.GetAxis("Horizontal")-transform.localPosition.z,0)*sinsitive;
+		/*Vector3 espectedSpeed=new Vector3(Input.GetAxis("Vertical")-original-transform.localPosition.y,Input.GetAxis("Horizontal")-transform.localPosition.z,0)*sinsitive;
 		speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
 		//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
 		transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.forward*Time.deltaTime*speed.y;
-		transform.LookAt(transform.position+new Vector3(-3,speed.x,-speed.y));
-		transform.LookAt(transform.position+new Vector3(-3,0,0));
+		transform.LookAt(transform.position+new Vector3(-3,speed.x,-speed.y));*/
 		
 		//-----------------end 2 dimensional control speed-------------------------------------------
 		
