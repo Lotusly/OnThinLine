@@ -19,8 +19,8 @@ public class PlayerControl : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		//original = Input.GetAxis("Vertical");
-		original=0;
+		original = Input.GetAxis("Vertical");
+		//original=0;
 	}
 	
 	// Update is called once per frame

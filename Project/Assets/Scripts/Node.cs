@@ -6,6 +6,8 @@ public class Node : MonoBehaviour
 {
 
 	private AudioSource aud;
+
+	public bool hit = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,6 +22,7 @@ public class Node : MonoBehaviour
 	{
 		if (other.tag.Equals("Player"))
 		{
+			hit = true;
 			aud=GetComponent<AudioSource>();
 			aud.clip = Resources.Load<AudioClip>(name);
 			aud.Play();
@@ -29,7 +32,7 @@ public class Node : MonoBehaviour
 
 	IEnumerator DelayDestroy()
 	{
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(3);
 		Destroy(gameObject);
 	}
 }

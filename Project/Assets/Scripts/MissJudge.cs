@@ -18,7 +18,8 @@ public class MissJudge : MonoBehaviour {
 	{
 		if (other.tag.Equals("Node"))
 		{
-			Destroy(other.gameObject);
+			if(other.gameObject.GetComponent<Node>()==null || !other.gameObject.GetComponent<Node>().hit)
+				Destroy(other.gameObject);
 		}
 	}
 }
