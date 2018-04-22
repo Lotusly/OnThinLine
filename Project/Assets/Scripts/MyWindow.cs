@@ -17,9 +17,11 @@ public class MyWindow : EditorWindow
 	private Transform parent;
 
 	//private int length;
-	private int temposOffset;
+	private float temposOffset;
 
 	private string prefix;
+
+	private Vector2 scrollPos;
 	// Add menu named "My Window" to the Window menu
 	[MenuItem("Window/My Window")]
 	static void Init()
@@ -48,15 +50,22 @@ public class MyWindow : EditorWindow
 		_serializedObject.Update();
 		EditorGUI.BeginChangeCheck();
 		
+		
+
+		GUILayout.BeginVertical();
+		scrollPos = GUILayout.BeginScrollView(scrollPos,false,true, GUILayout.ExpandHeight(true));
+		
 		node = EditorGUILayout.ObjectField("Node",node,typeof(GameObject),true) as GameObject;
 		parent = EditorGUILayout.ObjectField("Parent", parent, typeof(Transform), true) as Transform;
 		moveSpeed = EditorGUILayout.FloatField("MoveSpeed", moveSpeed);
 		tempo = EditorGUILayout.FloatField("Tempo", tempo);
-		temposOffset = EditorGUILayout.IntField("Offset", temposOffset);
+		temposOffset = EditorGUILayout.FloatField("Offset", temposOffset);
 		prefix = EditorGUILayout.TextField("Prefix", prefix);
 		EditorGUILayout.PropertyField(_assetLstProperty, true);
-		
-		//length = EditorGUILayout.IntField("Length", length);
+
+		GUILayout.EndScrollView ();
+		GUILayout.EndVertical();
+
 		if (GUILayout.Button("Generate"))
 		{
 			Generate();
