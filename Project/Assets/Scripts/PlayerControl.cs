@@ -17,7 +17,7 @@ public class PlayerControl : MonoBehaviour
 	private Vector3 speed = Vector3.zero;
 
 	private Node drum;
-	private bool inDrum;
+	public bool inDrum;
 
 	// Use this for initialization
 	void Start ()
@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (inDrum && drum != null && Input.GetKeyDown(KeyCode.Space))
+		if (inDrum && drum != null && Input.GetButtonDown("Fire1"))
 		{
 			hitDrum();
 		}
