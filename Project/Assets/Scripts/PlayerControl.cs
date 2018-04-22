@@ -14,6 +14,8 @@ public class PlayerControl : MonoBehaviour
 
 	[SerializeField] private float sinsitive;
 
+	private Vector3 speed = Vector3.zero;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -30,18 +32,23 @@ public class PlayerControl : MonoBehaviour
 		//float speed;
 		//speed=sinsitive * (Input.GetAxis("Vertical")-original-transform.localPosition.y);
 		//transform.localPosition += Vector3.up * Time.deltaTime * speed;
-		//-----------------------end------------------------------------
+		//-----------------------end 1 dimensional control speed------------------------------------
 		
 		//--------------2 dimensional control speed----------------------------
-		Vector3 speed;
-		speed=new Vector2((Input.GetAxis("Vertical")-original-transform.localPosition.y),Input.GetAxis("Horizontal")-transform.localPosition.z)*sinsitive;
+		Vector3 espectedSpeed=new Vector3(Input.GetAxis("Vertical")-original-transform.localPosition.y,Input.GetAxis("Horizontal")-transform.localPosition.z,0)*sinsitive;
+		speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
+		//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
 		transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.forward*Time.deltaTime*speed.y;
-		transform.LookAt(transform.position-new Vector3(3,speed.x,speed.y));
-		//-----------------end-------------------------------------------
+		transform.LookAt(transform.position+new Vector3(-3,speed.x,-speed.y));
+		transform.LookAt(transform.position+new Vector3(-3,0,0));
+		
+		//-----------------end 2 dimensional control speed-------------------------------------------
+		
+		
 		
 		//--------------------control position-----------------------------------
 		//transform.localPosition = Vector3.up * (Input.GetAxis("Vertical")-original);
-		//-----------------end-------------------------------------------
+		//-----------------end control position-------------------------------------------
 		history.positionCount++;
 		history.SetPosition(history.positionCount-1,transform.position);
 	
