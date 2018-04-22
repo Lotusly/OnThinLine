@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MissJudge.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MissJudge.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/MissJudge.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <marker date="1524416008088" expanded="true" signature="6:78" ph="..." />
                 <marker date="1524416008088" expanded="true" signature="119:452" ph="{...}" />
@@ -86,22 +86,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyWindow.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MyWindow.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/MyWindow.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="81" column="4" lean-forward="false" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
+            <state relative-caret-position="884">
+              <caret line="89" column="31" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
               <folding>
-                <marker date="1524408579725" expanded="false" signature="8:111" ph="..." />
-                <marker date="1524408579725" expanded="true" signature="148:2488" ph="{...}" />
-                <marker date="1524408579725" expanded="true" signature="490:643" ph="{...}" />
-                <marker date="1524408579725" expanded="true" signature="844:963" ph="{...}" />
-                <marker date="1524408579725" expanded="true" signature="978:1877" ph="{...}" />
-                <marker date="1524408579725" expanded="true" signature="1758:1781" ph="{...}" />
-                <marker date="1524408579725" expanded="true" signature="1818:1874" ph="{...}" />
-                <marker date="1524408579725" expanded="true" signature="1895:2486" ph="{...}" />
-                <marker date="1524408579725" expanded="true" signature="1980:2480" ph="{...}" />
-                <marker date="1524408579725" expanded="true" signature="2317:2476" ph="/* GameObject newNode = PrefabUtility.InstantiatePrefab(node) as GameObject; ... */" />
+                <marker date="1524416854588" expanded="false" signature="8:111" ph="..." />
+                <marker date="1524416854588" expanded="true" signature="148:2578" ph="{...}" />
+                <marker date="1524416854588" expanded="true" signature="490:643" ph="{...}" />
+                <marker date="1524416854588" expanded="true" signature="844:963" ph="{...}" />
+                <marker date="1524416854588" expanded="true" signature="978:1877" ph="{...}" />
+                <marker date="1524416854588" expanded="true" signature="1758:1781" ph="{...}" />
+                <marker date="1524416854588" expanded="true" signature="1818:1874" ph="{...}" />
+                <marker date="1524416854588" expanded="true" signature="1895:2576" ph="{...}" />
+                <marker date="1524416854588" expanded="true" signature="1980:2570" ph="{...}" />
+                <marker date="1524416854588" expanded="true" signature="2407:2566" ph="/* GameObject newNode = PrefabUtility.InstantiatePrefab(node) as GameObject; ... */" />
               </folding>
             </state>
           </provider>
@@ -145,10 +145,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NodeGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MusicTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SoundController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MyWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Node.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MissJudge.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MyWindow.cs" />
       </list>
     </option>
   </component>
@@ -245,12 +245,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524326236500</updated>
       <workItem from="1524326240621" duration="22472000" />
-      <workItem from="1524408399348" duration="1893000" />
+      <workItem from="1524408399348" duration="3256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24365000" />
+    <option name="totallyTimeSpent" value="25728000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -385,16 +385,16 @@
         <state relative-caret-position="1407">
           <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
-            <marker date="1524408579725" expanded="false" signature="8:111" ph="..." />
-            <marker date="1524408579725" expanded="true" signature="148:2488" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="490:643" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="844:963" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="978:1877" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="1758:1781" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="1818:1874" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="1895:2486" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="1980:2480" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="2317:2476" ph="/* GameObject newNode = PrefabUtility.InstantiatePrefab(node) as GameObject; ... */" />
+            <marker date="1524416854588" expanded="false" signature="8:111" ph="..." />
+            <marker date="1524416854588" expanded="true" signature="148:2578" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="490:643" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="844:963" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="978:1877" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="1758:1781" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="1818:1874" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="1895:2576" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="1980:2570" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="2407:2566" ph="/* GameObject newNode = PrefabUtility.InstantiatePrefab(node) as GameObject; ... */" />
           </folding>
         </state>
       </provider>
@@ -420,25 +420,6 @@
             <marker date="1524361688193" expanded="true" signature="271:278" ph="{...}" />
             <marker date="1524361688193" expanded="true" signature="316:434" ph="{...}" />
             <marker date="1524361688193" expanded="true" signature="353:431" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MyWindow.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="81" column="4" lean-forward="false" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
-          <folding>
-            <marker date="1524408579725" expanded="false" signature="8:111" ph="..." />
-            <marker date="1524408579725" expanded="true" signature="148:2488" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="490:643" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="844:963" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="978:1877" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="1758:1781" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="1818:1874" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="1895:2486" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="1980:2480" ph="{...}" />
-            <marker date="1524408579725" expanded="true" signature="2317:2476" ph="/* GameObject newNode = PrefabUtility.InstantiatePrefab(node) as GameObject; ... */" />
           </folding>
         </state>
       </provider>
@@ -498,7 +479,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MissJudge.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <marker date="1524416008088" expanded="true" signature="6:78" ph="..." />
             <marker date="1524416008088" expanded="true" signature="119:452" ph="{...}" />
@@ -506,6 +487,25 @@
             <marker date="1524416008088" expanded="true" signature="231:238" ph="{...}" />
             <marker date="1524416008088" expanded="true" signature="276:450" ph="{...}" />
             <marker date="1524416008088" expanded="true" signature="311:447" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MyWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="89" column="31" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+          <folding>
+            <marker date="1524416854588" expanded="false" signature="8:111" ph="..." />
+            <marker date="1524416854588" expanded="true" signature="148:2578" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="490:643" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="844:963" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="978:1877" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="1758:1781" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="1818:1874" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="1895:2576" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="1980:2570" ph="{...}" />
+            <marker date="1524416854588" expanded="true" signature="2407:2566" ph="/* GameObject newNode = PrefabUtility.InstantiatePrefab(node) as GameObject; ... */" />
           </folding>
         </state>
       </provider>
