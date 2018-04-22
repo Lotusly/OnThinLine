@@ -87,6 +87,7 @@ public class PlayerControl : MonoBehaviour
 	private void hitDrum()
 	{
 		drum.Hit();
+		Drum.instance.EnPower();
 		inDrum = false;
 		drum = null;
 	}

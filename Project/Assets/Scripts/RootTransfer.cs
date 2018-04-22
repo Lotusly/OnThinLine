@@ -7,7 +7,14 @@ public class RootTransfer : MonoBehaviour
 
 
 	public float Speed;
+
+	public static RootTransfer instance;
 	// Use this for initialization
+	private void Awake()
+	{
+		if (instance == null) instance = this;
+	}
+
 	void Start () {
 		
 	}

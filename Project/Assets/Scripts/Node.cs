@@ -20,7 +20,7 @@ public class Node : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (tag.Equals("Node") && other.tag.Equals("Player"))
+		if (!tag.Equals("Drum") && other.tag.Equals("Player"))
 		{
 			hit = true;
 			aud=GetComponent<AudioSource>();

@@ -8,11 +8,19 @@ using UnityEngine;
 
 public class Drum : MonoBehaviour
 {
+	public static Drum instance;
 
 	[SerializeField] private LineRenderer history;
-
+	[SerializeField] private float unitPower;
+	[SerializeField] private Material ballMat;
+	[SerializeField] private Material historyMat;
+	[SerializeField] private Vector3 newPosition;
 
 	// Use this for initialization
+	void Awake()
+	{
+		if (instance == null) instance = this;
+	}
 	void Start ()
 	{
 	
@@ -26,6 +34,29 @@ public class Drum : MonoBehaviour
 		history.positionCount++;
 		history.SetPosition(history.positionCount-1,transform.position);
 	
+	}
+
+	public void EnPower()
+	{
+		if(ballMat.color.a<200)ballMat.color+=new Color(0,0,0,unitPower/255);
+		
+		if(historyMat.color.a<200)historyMat.color+=new Color(0,0,0,unitPower/255);
+	}
+
+	public void FlyAway()
+	{
+		StartCoroutine("flyAway");
+	}
+
+	private IEnumerator flyAway()
+	{
+		yield return null;
+		transform.parent = RootTransfer.instance.transform;
+		while (Vector3.Distance(transform.localPosition, newPosition) > 0.1f)
+		{
+			transform.localPosition += (newPosition - transform.localPosition) * Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
 	}
 
 	/*void OnTriggerEnter(Collider other)
