@@ -58,12 +58,12 @@ public class PlayerControl : MonoBehaviour
 	
 	}
 
-	void OnTriggerEnter(Collider other)
+	/*void OnTriggerEnter(Collider other)
 	{
 		if (other.tag.Equals("Node"))
 		{
 			SoundController.instance.PlaySound(other.name);
 			Destroy(other.gameObject);
 		}
-	}
+	}*/
 }
