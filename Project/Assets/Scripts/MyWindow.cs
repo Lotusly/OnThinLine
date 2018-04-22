@@ -88,7 +88,7 @@ public class MyWindow : EditorWindow
 			Vector3 position;
 			position = Vector3.right * t* moveSpeed / tempo * 60+Vector3.up*place[i].z;
 			t = t + place[i].x;
-			GameObject newNode = Instantiate(node, position, Quaternion.identity, parent);
+			GameObject newNode = Instantiate(node, position, Quaternion.Euler(Random.value*360,Random.value*360,Random.value*360), parent);
 			newNode.name = prefix+place[i].y.ToString();
 			//GameObject newNode = PrefabUtility.InstantiatePrefab(node) as GameObject;
 			//newNode.transform.position = position;
