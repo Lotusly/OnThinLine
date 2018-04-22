@@ -16,6 +16,9 @@ public class PlayerControl : MonoBehaviour
 
 	private Vector3 speed = Vector3.zero;
 
+	private Node drum;
+	private bool inDrum;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -26,7 +29,10 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		
+		if (inDrum && drum != null && Input.GetKeyDown(KeyCode.Space))
+		{
+			hitDrum();
+		}
 		//----------------1 dimensional control speed-----------------------
 		Vector3 espectedSpeed=new Vector3(Input.GetAxis("Vertical")-original-transform.localPosition.y,0,0)*sinsitive;
 		speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
@@ -58,12 +64,32 @@ public class PlayerControl : MonoBehaviour
 	
 	}
 
-	/*void OnTriggerEnter(Collider other)
+	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag.Equals("Node"))
+		if (other.tag.Equals("Drum"))
 		{
-			SoundController.instance.PlaySound(other.name);
-			Destroy(other.gameObject);
+			inDrum = true;
+			drum = other.gameObject.GetComponent<Node>();
+			//SoundController.instance.PlaySound(other.name);
+			//Destroy(other.gameObject);
 		}
-	}*/
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.tag.Equals("Drum") && inDrum && drum == other.gameObject.GetComponent<Node>())
+		{
+			inDrum = false;
+			drum = null;
+		}
+	}
+
+	private void hitDrum()
+	{
+		drum.Hit();
+		inDrum = false;
+		drum = null;
+	}
+
+
 }

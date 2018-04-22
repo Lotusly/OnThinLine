@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Piano
   - Node
+  - Drum
   layers:
   - Default
   - TransparentFX

@@ -4165,13 +4165,13 @@ GameObject:
   m_Component:
   - component: {fileID: 181754676}
   - component: {fileID: 181754681}
-  - component: {fileID: 181754680}
   - component: {fileID: 181754679}
   - component: {fileID: 181754678}
   - component: {fileID: 181754677}
+  - component: {fileID: 181754680}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4313,8 +4313,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &181754680
-CapsuleCollider:
+--- !u!65 &181754680
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4322,9 +4322,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &181754681
 MeshFilter:
@@ -4509,6 +4508,121 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 182823914}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &204527991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 204527992}
+  - component: {fileID: 204527993}
+  m_Layer: 0
+  m_Name: DrumBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &204527992
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204527991}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1951271164}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &204527993
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204527991}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 873762d8bf1fd3e429bf678c36d78b0e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 330, y: -2, z: 0}
+  - {x: 1000, y: -2, z: 0}
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 0.1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
 --- !u!1 &206432243
 GameObject:
   m_ObjectHideFlags: 0
@@ -4518,13 +4632,13 @@ GameObject:
   m_Component:
   - component: {fileID: 206432244}
   - component: {fileID: 206432249}
-  - component: {fileID: 206432248}
   - component: {fileID: 206432247}
   - component: {fileID: 206432246}
   - component: {fileID: 206432245}
+  - component: {fileID: 206432248}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4666,8 +4780,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &206432248
-CapsuleCollider:
+--- !u!65 &206432248
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4675,9 +4789,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &206432249
 MeshFilter:
@@ -4695,13 +4808,13 @@ GameObject:
   m_Component:
   - component: {fileID: 215490461}
   - component: {fileID: 215490466}
-  - component: {fileID: 215490465}
   - component: {fileID: 215490464}
   - component: {fileID: 215490463}
   - component: {fileID: 215490462}
+  - component: {fileID: 215490465}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4843,8 +4956,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &215490465
-CapsuleCollider:
+--- !u!65 &215490465
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4852,9 +4965,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &215490466
 MeshFilter:
@@ -5335,7 +5447,7 @@ Transform:
   - {fileID: 460713120}
   - {fileID: 1435232877}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &252270009
 GameObject:
@@ -5698,13 +5810,13 @@ GameObject:
   m_Component:
   - component: {fileID: 255722420}
   - component: {fileID: 255722425}
-  - component: {fileID: 255722424}
   - component: {fileID: 255722423}
   - component: {fileID: 255722422}
   - component: {fileID: 255722421}
+  - component: {fileID: 255722424}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5846,8 +5958,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &255722424
-CapsuleCollider:
+--- !u!65 &255722424
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -5855,9 +5967,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &255722425
 MeshFilter:
@@ -5978,8 +6089,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1130663612}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &280603576
 GameObject:
@@ -6694,13 +6805,13 @@ GameObject:
   m_Component:
   - component: {fileID: 295487027}
   - component: {fileID: 295487032}
-  - component: {fileID: 295487031}
   - component: {fileID: 295487030}
   - component: {fileID: 295487029}
   - component: {fileID: 295487028}
+  - component: {fileID: 295487031}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6842,8 +6953,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &295487031
-CapsuleCollider:
+--- !u!65 &295487031
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -6851,9 +6962,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &295487032
 MeshFilter:
@@ -6871,13 +6981,13 @@ GameObject:
   m_Component:
   - component: {fileID: 298711876}
   - component: {fileID: 298711881}
-  - component: {fileID: 298711880}
   - component: {fileID: 298711879}
   - component: {fileID: 298711878}
   - component: {fileID: 298711877}
+  - component: {fileID: 298711880}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7019,8 +7129,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &298711880
-CapsuleCollider:
+--- !u!65 &298711880
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -7028,9 +7138,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &298711881
 MeshFilter:
@@ -7752,13 +7861,13 @@ GameObject:
   m_Component:
   - component: {fileID: 315265447}
   - component: {fileID: 315265452}
-  - component: {fileID: 315265451}
   - component: {fileID: 315265450}
   - component: {fileID: 315265449}
   - component: {fileID: 315265448}
+  - component: {fileID: 315265451}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7900,8 +8009,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &315265451
-CapsuleCollider:
+--- !u!65 &315265451
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -7909,9 +8018,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &315265452
 MeshFilter:
@@ -9065,9 +9173,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 371d15d7211b39743ad0aac8f2f53843, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10553,13 +10661,13 @@ GameObject:
   m_Component:
   - component: {fileID: 407898391}
   - component: {fileID: 407898396}
-  - component: {fileID: 407898395}
   - component: {fileID: 407898394}
   - component: {fileID: 407898393}
   - component: {fileID: 407898392}
+  - component: {fileID: 407898395}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10701,8 +10809,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &407898395
-CapsuleCollider:
+--- !u!65 &407898395
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -10710,9 +10818,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &407898396
 MeshFilter:
@@ -11434,13 +11541,13 @@ GameObject:
   m_Component:
   - component: {fileID: 423165568}
   - component: {fileID: 423165573}
-  - component: {fileID: 423165572}
   - component: {fileID: 423165571}
   - component: {fileID: 423165570}
   - component: {fileID: 423165569}
+  - component: {fileID: 423165572}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11582,8 +11689,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &423165572
-CapsuleCollider:
+--- !u!65 &423165572
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -11591,9 +11698,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &423165573
 MeshFilter:
@@ -12139,13 +12245,13 @@ GameObject:
   m_Component:
   - component: {fileID: 442133353}
   - component: {fileID: 442133358}
-  - component: {fileID: 442133357}
   - component: {fileID: 442133356}
   - component: {fileID: 442133355}
   - component: {fileID: 442133354}
+  - component: {fileID: 442133357}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12287,8 +12393,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &442133357
-CapsuleCollider:
+--- !u!65 &442133357
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -12296,9 +12402,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &442133358
 MeshFilter:
@@ -12367,7 +12472,7 @@ Transform:
   - {fileID: 1491416929}
   - {fileID: 249834955}
   m_Father: {fileID: 848537830}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470891609
 GameObject:
@@ -13434,13 +13539,13 @@ GameObject:
   m_Component:
   - component: {fileID: 506525797}
   - component: {fileID: 506525802}
-  - component: {fileID: 506525801}
   - component: {fileID: 506525800}
   - component: {fileID: 506525799}
   - component: {fileID: 506525798}
+  - component: {fileID: 506525801}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13582,8 +13687,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &506525801
-CapsuleCollider:
+--- !u!65 &506525801
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -13591,9 +13696,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &506525802
 MeshFilter:
@@ -14667,13 +14771,13 @@ GameObject:
   m_Component:
   - component: {fileID: 541780024}
   - component: {fileID: 541780029}
-  - component: {fileID: 541780028}
   - component: {fileID: 541780027}
   - component: {fileID: 541780026}
   - component: {fileID: 541780025}
+  - component: {fileID: 541780028}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14815,8 +14919,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &541780028
-CapsuleCollider:
+--- !u!65 &541780028
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -14824,9 +14928,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &541780029
 MeshFilter:
@@ -14844,13 +14947,13 @@ GameObject:
   m_Component:
   - component: {fileID: 547504262}
   - component: {fileID: 547504267}
-  - component: {fileID: 547504266}
   - component: {fileID: 547504265}
   - component: {fileID: 547504264}
   - component: {fileID: 547504263}
+  - component: {fileID: 547504266}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14992,8 +15095,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &547504266
-CapsuleCollider:
+--- !u!65 &547504266
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -15001,9 +15104,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &547504267
 MeshFilter:
@@ -17889,13 +17991,13 @@ GameObject:
   m_Component:
   - component: {fileID: 628893978}
   - component: {fileID: 628893983}
-  - component: {fileID: 628893982}
   - component: {fileID: 628893981}
   - component: {fileID: 628893980}
   - component: {fileID: 628893979}
+  - component: {fileID: 628893982}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18037,8 +18139,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &628893982
-CapsuleCollider:
+--- !u!65 &628893982
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -18046,9 +18148,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &628893983
 MeshFilter:
@@ -18242,13 +18343,13 @@ GameObject:
   m_Component:
   - component: {fileID: 632391558}
   - component: {fileID: 632391563}
-  - component: {fileID: 632391562}
   - component: {fileID: 632391561}
   - component: {fileID: 632391560}
   - component: {fileID: 632391559}
+  - component: {fileID: 632391562}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18390,8 +18491,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &632391562
-CapsuleCollider:
+--- !u!65 &632391562
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -18399,9 +18500,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &632391563
 MeshFilter:
@@ -18419,13 +18519,13 @@ GameObject:
   m_Component:
   - component: {fileID: 658280701}
   - component: {fileID: 658280706}
-  - component: {fileID: 658280705}
   - component: {fileID: 658280704}
   - component: {fileID: 658280703}
   - component: {fileID: 658280702}
+  - component: {fileID: 658280705}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18567,8 +18667,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &658280705
-CapsuleCollider:
+--- !u!65 &658280705
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -18576,9 +18676,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &658280706
 MeshFilter:
@@ -18772,13 +18871,13 @@ GameObject:
   m_Component:
   - component: {fileID: 671264038}
   - component: {fileID: 671264043}
-  - component: {fileID: 671264042}
   - component: {fileID: 671264041}
   - component: {fileID: 671264040}
   - component: {fileID: 671264039}
+  - component: {fileID: 671264042}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18920,8 +19019,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &671264042
-CapsuleCollider:
+--- !u!65 &671264042
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -18929,9 +19028,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &671264043
 MeshFilter:
@@ -18986,6 +19084,209 @@ Transform:
   m_Father: {fileID: 1499517166}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &688188553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 688188554}
+  - component: {fileID: 688188560}
+  - component: {fileID: 688188559}
+  - component: {fileID: 688188557}
+  - component: {fileID: 688188556}
+  - component: {fileID: 688188555}
+  - component: {fileID: 688188558}
+  m_Layer: 0
+  m_Name: Drum
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &688188554
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 688188553}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
+  m_Children: []
+  m_Father: {fileID: 848537830}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &688188555
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 688188553}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &688188556
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 688188553}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!96 &688188557
+TrailRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 688188553}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 97113995632d0bb42b186c83e64e8602, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Time: 0.4
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.09868431
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9933813
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 0, b: 0, a: 1}
+      key1: {r: 1, g: 0, b: 0, a: 0.48235294}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    generateLightingData: 0
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
+--- !u!114 &688188558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 688188553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a0e1382111a9641afe9cd324f0add7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  history: {fileID: 2015277651}
+--- !u!23 &688188559
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 688188553}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 13643ba980973d84697e3b631768dd46, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &688188560
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 688188553}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &690671278
 GameObject:
   m_ObjectHideFlags: 0
@@ -19171,13 +19472,13 @@ GameObject:
   m_Component:
   - component: {fileID: 691287624}
   - component: {fileID: 691287629}
-  - component: {fileID: 691287628}
   - component: {fileID: 691287627}
   - component: {fileID: 691287626}
   - component: {fileID: 691287625}
+  - component: {fileID: 691287628}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19319,8 +19620,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &691287628
-CapsuleCollider:
+--- !u!65 &691287628
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -19328,9 +19629,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &691287629
 MeshFilter:
@@ -19365,7 +19665,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 692154865}
-  m_LocalRotation: {x: 0.50069875, y: -0.6165007, z: 0.16350171, w: 0.5852306}
+  m_LocalRotation: {x: 0.5006988, y: -0.61650074, z: 0.16350172, w: 0.58523065}
   m_LocalPosition: {x: 663.3333, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
@@ -22244,13 +22544,13 @@ GameObject:
   m_Component:
   - component: {fileID: 815257226}
   - component: {fileID: 815257231}
-  - component: {fileID: 815257230}
   - component: {fileID: 815257229}
   - component: {fileID: 815257228}
   - component: {fileID: 815257227}
+  - component: {fileID: 815257230}
   m_Layer: 0
   m_Name: drum5
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22392,8 +22692,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &815257230
-CapsuleCollider:
+--- !u!65 &815257230
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -22401,9 +22701,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &815257231
 MeshFilter:
@@ -22773,13 +23072,13 @@ GameObject:
   m_Component:
   - component: {fileID: 840855410}
   - component: {fileID: 840855415}
-  - component: {fileID: 840855414}
   - component: {fileID: 840855413}
   - component: {fileID: 840855412}
   - component: {fileID: 840855411}
+  - component: {fileID: 840855414}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22921,8 +23220,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &840855414
-CapsuleCollider:
+--- !u!65 &840855414
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -22930,9 +23229,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &840855415
 MeshFilter:
@@ -23178,13 +23476,13 @@ GameObject:
   m_Component:
   - component: {fileID: 843781438}
   - component: {fileID: 843781443}
-  - component: {fileID: 843781442}
   - component: {fileID: 843781441}
   - component: {fileID: 843781440}
   - component: {fileID: 843781439}
+  - component: {fileID: 843781442}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23326,8 +23624,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &843781442
-CapsuleCollider:
+--- !u!65 &843781442
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -23335,9 +23633,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &843781443
 MeshFilter:
@@ -23381,15 +23678,16 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 848537828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
+  m_LocalPosition: {x: 210, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 892134930}
   - {fileID: 1682983390}
+  - {fileID: 688188554}
+  - {fileID: 892134930}
   - {fileID: 1477984303}
   - {fileID: 467764951}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &851796949
 GameObject:
@@ -24648,11 +24946,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 892134929}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 0, z: 0}
+  m_LocalPosition: {x: -0.647, y: 0, z: 0}
   m_LocalScale: {x: 0.19024338, y: 2.0056264, z: 2.1597798}
   m_Children: []
   m_Father: {fileID: 848537830}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &892134931
 BoxCollider:
@@ -25628,13 +25926,13 @@ GameObject:
   m_Component:
   - component: {fileID: 956003961}
   - component: {fileID: 956003966}
-  - component: {fileID: 956003965}
   - component: {fileID: 956003964}
   - component: {fileID: 956003963}
   - component: {fileID: 956003962}
+  - component: {fileID: 956003965}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25776,8 +26074,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &956003965
-CapsuleCollider:
+--- !u!65 &956003965
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -25785,9 +26083,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &956003966
 MeshFilter:
@@ -28093,13 +28390,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1045847653}
   - component: {fileID: 1045847658}
-  - component: {fileID: 1045847657}
   - component: {fileID: 1045847656}
   - component: {fileID: 1045847655}
   - component: {fileID: 1045847654}
+  - component: {fileID: 1045847657}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28241,8 +28538,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1045847657
-CapsuleCollider:
+--- !u!65 &1045847657
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -28250,9 +28547,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1045847658
 MeshFilter:
@@ -29083,13 +29379,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1087648369}
   - component: {fileID: 1087648374}
-  - component: {fileID: 1087648373}
   - component: {fileID: 1087648372}
   - component: {fileID: 1087648371}
   - component: {fileID: 1087648370}
+  - component: {fileID: 1087648373}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29231,8 +29527,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1087648373
-CapsuleCollider:
+--- !u!65 &1087648373
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -29240,9 +29536,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1087648374
 MeshFilter:
@@ -30678,7 +30973,37 @@ Transform:
   - {fileID: 2051652787}
   - {fileID: 1692458312}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1130663611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1130663612}
+  m_Layer: 0
+  m_Name: Histories
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1130663612
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130663611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 277847281}
+  - {fileID: 2015277652}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1134830840
 GameObject:
@@ -30882,7 +31207,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136350563}
-  m_LocalRotation: {x: 0.1189071, y: 0.56445915, z: 0.80138934, w: 0.15818337}
+  m_LocalRotation: {x: 0.11890712, y: 0.5644592, z: 0.80138946, w: 0.15818338}
   m_LocalPosition: {x: 386.6667, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
@@ -33086,13 +33411,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1176137214}
   - component: {fileID: 1176137219}
-  - component: {fileID: 1176137218}
   - component: {fileID: 1176137217}
   - component: {fileID: 1176137216}
   - component: {fileID: 1176137215}
+  - component: {fileID: 1176137218}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33234,8 +33559,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1176137218
-CapsuleCollider:
+--- !u!65 &1176137218
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -33243,9 +33568,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1176137219
 MeshFilter:
@@ -33263,13 +33587,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1184503184}
   - component: {fileID: 1184503189}
-  - component: {fileID: 1184503188}
   - component: {fileID: 1184503187}
   - component: {fileID: 1184503186}
   - component: {fileID: 1184503185}
+  - component: {fileID: 1184503188}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33411,8 +33735,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1184503188
-CapsuleCollider:
+--- !u!65 &1184503188
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -33420,9 +33744,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1184503189
 MeshFilter:
@@ -37752,13 +38075,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1316591486}
   - component: {fileID: 1316591491}
-  - component: {fileID: 1316591490}
   - component: {fileID: 1316591489}
   - component: {fileID: 1316591488}
   - component: {fileID: 1316591487}
+  - component: {fileID: 1316591490}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37900,8 +38223,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1316591490
-CapsuleCollider:
+--- !u!65 &1316591490
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -37909,9 +38232,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1316591491
 MeshFilter:
@@ -37929,13 +38251,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1317713769}
   - component: {fileID: 1317713774}
-  - component: {fileID: 1317713773}
   - component: {fileID: 1317713772}
   - component: {fileID: 1317713771}
   - component: {fileID: 1317713770}
+  - component: {fileID: 1317713773}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38077,8 +38399,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1317713773
-CapsuleCollider:
+--- !u!65 &1317713773
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -38086,9 +38408,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1317713774
 MeshFilter:
@@ -38875,13 +39196,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1343773850}
   - component: {fileID: 1343773855}
-  - component: {fileID: 1343773854}
   - component: {fileID: 1343773853}
   - component: {fileID: 1343773852}
   - component: {fileID: 1343773851}
+  - component: {fileID: 1343773854}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39023,8 +39344,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1343773854
-CapsuleCollider:
+--- !u!65 &1343773854
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -39032,9 +39353,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1343773855
 MeshFilter:
@@ -39404,13 +39724,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1358117944}
   - component: {fileID: 1358117949}
-  - component: {fileID: 1358117948}
   - component: {fileID: 1358117947}
   - component: {fileID: 1358117946}
   - component: {fileID: 1358117945}
+  - component: {fileID: 1358117948}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39552,8 +39872,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1358117948
-CapsuleCollider:
+--- !u!65 &1358117948
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -39561,9 +39881,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1358117949
 MeshFilter:
@@ -39806,13 +40125,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1381511362}
   - component: {fileID: 1381511367}
-  - component: {fileID: 1381511366}
   - component: {fileID: 1381511365}
   - component: {fileID: 1381511364}
   - component: {fileID: 1381511363}
+  - component: {fileID: 1381511366}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39954,8 +40273,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1381511366
-CapsuleCollider:
+--- !u!65 &1381511366
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -39963,9 +40282,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1381511367
 MeshFilter:
@@ -40511,13 +40829,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1401443178}
   - component: {fileID: 1401443183}
-  - component: {fileID: 1401443182}
   - component: {fileID: 1401443181}
   - component: {fileID: 1401443180}
   - component: {fileID: 1401443179}
+  - component: {fileID: 1401443182}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40659,8 +40977,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1401443182
-CapsuleCollider:
+--- !u!65 &1401443182
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -40668,9 +40986,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1401443183
 MeshFilter:
@@ -42828,13 +43145,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1465943609}
   - component: {fileID: 1465943614}
-  - component: {fileID: 1465943613}
   - component: {fileID: 1465943612}
   - component: {fileID: 1465943611}
   - component: {fileID: 1465943610}
+  - component: {fileID: 1465943613}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42976,8 +43293,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1465943613
-CapsuleCollider:
+--- !u!65 &1465943613
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -42985,9 +43302,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1465943614
 MeshFilter:
@@ -43005,13 +43321,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1474174967}
   - component: {fileID: 1474174972}
-  - component: {fileID: 1474174971}
   - component: {fileID: 1474174970}
   - component: {fileID: 1474174969}
   - component: {fileID: 1474174968}
+  - component: {fileID: 1474174971}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43153,8 +43469,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1474174971
-CapsuleCollider:
+--- !u!65 &1474174971
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -43162,9 +43478,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1474174972
 MeshFilter:
@@ -43285,7 +43600,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1951271164}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1477984302
@@ -43320,7 +43635,7 @@ Transform:
   - {fileID: 1092559773}
   - {fileID: 1163847708}
   m_Father: {fileID: 848537830}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1477984304
 MonoBehaviour:
@@ -44703,13 +45018,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1514157781}
   - component: {fileID: 1514157786}
-  - component: {fileID: 1514157785}
   - component: {fileID: 1514157784}
   - component: {fileID: 1514157783}
   - component: {fileID: 1514157782}
+  - component: {fileID: 1514157785}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44851,8 +45166,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1514157785
-CapsuleCollider:
+--- !u!65 &1514157785
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -44860,9 +45175,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1514157786
 MeshFilter:
@@ -46816,13 +47130,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1553378399}
   - component: {fileID: 1553378404}
-  - component: {fileID: 1553378403}
   - component: {fileID: 1553378402}
   - component: {fileID: 1553378401}
   - component: {fileID: 1553378400}
+  - component: {fileID: 1553378403}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46964,8 +47278,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1553378403
-CapsuleCollider:
+--- !u!65 &1553378403
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -46973,9 +47287,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1553378404
 MeshFilter:
@@ -47697,13 +48010,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1564952641}
   - component: {fileID: 1564952646}
-  - component: {fileID: 1564952645}
   - component: {fileID: 1564952644}
   - component: {fileID: 1564952643}
   - component: {fileID: 1564952642}
+  - component: {fileID: 1564952645}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47845,8 +48158,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1564952645
-CapsuleCollider:
+--- !u!65 &1564952645
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -47854,9 +48167,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1564952646
 MeshFilter:
@@ -49634,13 +49946,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1629259766}
   - component: {fileID: 1629259771}
-  - component: {fileID: 1629259770}
   - component: {fileID: 1629259769}
   - component: {fileID: 1629259768}
   - component: {fileID: 1629259767}
+  - component: {fileID: 1629259770}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49782,8 +50094,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1629259770
-CapsuleCollider:
+--- !u!65 &1629259770
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -49791,9 +50103,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1629259771
 MeshFilter:
@@ -52277,12 +52588,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1682983386}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 848537830}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1682983391
 MonoBehaviour:
@@ -52311,7 +52622,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae71ce4359803ea41adf3cee74f67ebd, type: 2}
+  - {fileID: 2100000, guid: 649909846a484cf47a6c130009db5034, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -52355,7 +52666,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0.49019608}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -52588,13 +52899,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1689488516}
   - component: {fileID: 1689488521}
-  - component: {fileID: 1689488520}
   - component: {fileID: 1689488519}
   - component: {fileID: 1689488518}
   - component: {fileID: 1689488517}
+  - component: {fileID: 1689488520}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52736,8 +53047,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1689488520
-CapsuleCollider:
+--- !u!65 &1689488520
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -52745,9 +53056,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1689488521
 MeshFilter:
@@ -52765,13 +53075,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1689960706}
   - component: {fileID: 1689960711}
-  - component: {fileID: 1689960710}
   - component: {fileID: 1689960709}
   - component: {fileID: 1689960708}
   - component: {fileID: 1689960707}
+  - component: {fileID: 1689960710}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52913,8 +53223,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1689960710
-CapsuleCollider:
+--- !u!65 &1689960710
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -52922,9 +53232,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1689960711
 MeshFilter:
@@ -53172,13 +53481,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1694985406}
   - component: {fileID: 1694985411}
-  - component: {fileID: 1694985410}
   - component: {fileID: 1694985409}
   - component: {fileID: 1694985408}
   - component: {fileID: 1694985407}
+  - component: {fileID: 1694985410}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53320,8 +53629,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1694985410
-CapsuleCollider:
+--- !u!65 &1694985410
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -53329,9 +53638,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1694985411
 MeshFilter:
@@ -53877,13 +54185,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1722002007}
   - component: {fileID: 1722002012}
-  - component: {fileID: 1722002011}
   - component: {fileID: 1722002010}
   - component: {fileID: 1722002009}
   - component: {fileID: 1722002008}
+  - component: {fileID: 1722002011}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54025,8 +54333,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1722002011
-CapsuleCollider:
+--- !u!65 &1722002011
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -54034,9 +54342,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1722002012
 MeshFilter:
@@ -55462,13 +55769,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1791943912}
   - component: {fileID: 1791943917}
-  - component: {fileID: 1791943916}
   - component: {fileID: 1791943915}
   - component: {fileID: 1791943914}
   - component: {fileID: 1791943913}
+  - component: {fileID: 1791943916}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55610,8 +55917,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1791943916
-CapsuleCollider:
+--- !u!65 &1791943916
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -55619,9 +55926,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1791943917
 MeshFilter:
@@ -56167,13 +56473,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1819799179}
   - component: {fileID: 1819799184}
-  - component: {fileID: 1819799183}
   - component: {fileID: 1819799182}
   - component: {fileID: 1819799181}
   - component: {fileID: 1819799180}
+  - component: {fileID: 1819799183}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56315,8 +56621,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1819799183
-CapsuleCollider:
+--- !u!65 &1819799183
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -56324,9 +56630,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1819799184
 MeshFilter:
@@ -56609,13 +56914,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1823753439}
   - component: {fileID: 1823753444}
-  - component: {fileID: 1823753443}
   - component: {fileID: 1823753442}
   - component: {fileID: 1823753441}
   - component: {fileID: 1823753440}
+  - component: {fileID: 1823753443}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56757,8 +57062,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1823753443
-CapsuleCollider:
+--- !u!65 &1823753443
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -56766,9 +57071,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1823753444
 MeshFilter:
@@ -56962,13 +57266,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1842634449}
   - component: {fileID: 1842634454}
-  - component: {fileID: 1842634453}
   - component: {fileID: 1842634452}
   - component: {fileID: 1842634451}
   - component: {fileID: 1842634450}
+  - component: {fileID: 1842634453}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57110,8 +57414,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1842634453
-CapsuleCollider:
+--- !u!65 &1842634453
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -57119,9 +57423,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1842634454
 MeshFilter:
@@ -57843,13 +58146,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1877534053}
   - component: {fileID: 1877534058}
-  - component: {fileID: 1877534057}
   - component: {fileID: 1877534056}
   - component: {fileID: 1877534055}
   - component: {fileID: 1877534054}
+  - component: {fileID: 1877534057}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57991,8 +58294,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1877534057
-CapsuleCollider:
+--- !u!65 &1877534057
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -58000,9 +58303,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1877534058
 MeshFilter:
@@ -59252,13 +59554,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1907577358}
   - component: {fileID: 1907577363}
-  - component: {fileID: 1907577362}
   - component: {fileID: 1907577361}
   - component: {fileID: 1907577360}
   - component: {fileID: 1907577359}
+  - component: {fileID: 1907577362}
   m_Layer: 0
   m_Name: drum4
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59400,8 +59702,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1907577362
-CapsuleCollider:
+--- !u!65 &1907577362
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -59409,9 +59711,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1907577363
 MeshFilter:
@@ -60476,6 +60777,36 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1949288126}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1951271163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1951271164}
+  m_Layer: 0
+  m_Name: Bases
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951271164
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951271163}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 204527992}
+  - {fileID: 1477583766}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959491863
 GameObject:
   m_ObjectHideFlags: 0
@@ -61763,13 +62094,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1988007414}
   - component: {fileID: 1988007419}
-  - component: {fileID: 1988007418}
   - component: {fileID: 1988007417}
   - component: {fileID: 1988007416}
   - component: {fileID: 1988007415}
+  - component: {fileID: 1988007418}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61911,8 +62242,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1988007418
-CapsuleCollider:
+--- !u!65 &1988007418
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -61920,9 +62251,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1988007419
 MeshFilter:
@@ -62514,6 +62844,121 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2012166123}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2015277650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2015277652}
+  - component: {fileID: 2015277651}
+  m_Layer: 0
+  m_Name: DrumHistory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!120 &2015277651
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015277650}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 97113995632d0bb42b186c83e64e8602, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: -10, y: -2, z: 0}
+  - {x: -5, y: -2, z: 0}
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 0.03
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+--- !u!4 &2015277652
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015277650}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1130663612}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2016666327
 GameObject:
   m_ObjectHideFlags: 0
@@ -62751,13 +63196,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2029212967}
   - component: {fileID: 2029212972}
-  - component: {fileID: 2029212971}
   - component: {fileID: 2029212970}
   - component: {fileID: 2029212969}
   - component: {fileID: 2029212968}
+  - component: {fileID: 2029212971}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62899,8 +63344,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2029212971
-CapsuleCollider:
+--- !u!65 &2029212971
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -62908,9 +63353,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2029212972
 MeshFilter:
@@ -62928,13 +63372,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2034807676}
   - component: {fileID: 2034807681}
-  - component: {fileID: 2034807680}
   - component: {fileID: 2034807679}
   - component: {fileID: 2034807678}
   - component: {fileID: 2034807677}
+  - component: {fileID: 2034807680}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63076,8 +63520,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2034807680
-CapsuleCollider:
+--- !u!65 &2034807680
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -63085,9 +63529,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2034807681
 MeshFilter:
@@ -64438,13 +64881,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2068640765}
   - component: {fileID: 2068640770}
-  - component: {fileID: 2068640769}
   - component: {fileID: 2068640768}
   - component: {fileID: 2068640767}
   - component: {fileID: 2068640766}
+  - component: {fileID: 2068640769}
   m_Layer: 0
   m_Name: drum2
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64586,8 +65029,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2068640769
-CapsuleCollider:
+--- !u!65 &2068640769
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -64595,9 +65038,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2068640770
 MeshFilter:
@@ -64791,13 +65233,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2076571323}
   - component: {fileID: 2076571328}
-  - component: {fileID: 2076571327}
   - component: {fileID: 2076571326}
   - component: {fileID: 2076571325}
   - component: {fileID: 2076571324}
+  - component: {fileID: 2076571327}
   m_Layer: 0
   m_Name: drum3
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64939,8 +65381,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2076571327
-CapsuleCollider:
+--- !u!65 &2076571327
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -64948,9 +65390,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2076571328
 MeshFilter:
@@ -65496,13 +65937,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2092596282}
   - component: {fileID: 2092596287}
-  - component: {fileID: 2092596286}
   - component: {fileID: 2092596285}
   - component: {fileID: 2092596284}
   - component: {fileID: 2092596283}
+  - component: {fileID: 2092596286}
   m_Layer: 0
   m_Name: drum5
-  m_TagString: Node
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65644,8 +66085,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2092596286
-CapsuleCollider:
+--- !u!65 &2092596286
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -65653,9 +66094,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2.5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2092596287
 MeshFilter:

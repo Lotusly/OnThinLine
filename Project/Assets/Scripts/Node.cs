@@ -20,7 +20,7 @@ public class Node : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag.Equals("Player"))
+		if (tag.Equals("Node") && other.tag.Equals("Player"))
 		{
 			hit = true;
 			aud=GetComponent<AudioSource>();
@@ -35,4 +35,14 @@ public class Node : MonoBehaviour
 		yield return new WaitForSeconds(3);
 		Destroy(gameObject);
 	}
+
+	public void Hit()
+	{
+		hit = true;
+		aud=GetComponent<AudioSource>();
+		aud.clip = Resources.Load<AudioClip>(name);
+		aud.Play();
+		StartCoroutine("DelayDestroy");
+	}
+	
 }
