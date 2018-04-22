@@ -22,6 +22,10 @@ public class Node : MonoBehaviour
 	{
 		if (!tag.Equals("Drum") && other.tag.Equals("Player"))
 		{
+			if (tag.Equals("Guitar"))
+			{
+				Guitar.instance.EnPower();
+			}
 			hit = true;
 			aud=GetComponent<AudioSource>();
 			aud.clip = Resources.Load<AudioClip>(name);

@@ -6,9 +6,9 @@ using UnityEngine;
 
 
 
-public class Drum : MonoBehaviour
+public class Guitar : MonoBehaviour
 {
-	public static Drum instance;
+	public static Guitar instance;
 
 	[SerializeField] private LineRenderer history;
 	[SerializeField] private float unitPower;
@@ -38,7 +38,6 @@ public class Drum : MonoBehaviour
 	public void EnPower()
 	{
 		if(ballMat.color.a<200)ballMat.color+=new Color(0,0,0,unitPower/255);
-		
 	}
 
 	public void FlyAway()
