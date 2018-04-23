@@ -45,4 +45,25 @@ public class SoundController : MonoBehaviour
 	{
 		sources[i].Play();
 	}
+
+	public void StopMusic(int i)
+	{
+		StartCoroutine(stopMusic(i));
+	}
+
+	private IEnumerator stopMusic(int i)
+	{
+		yield return null;
+		while (sources[i].volume > 0)
+		{
+			sources[i].volume -= Time.deltaTime;
+			if (sources[i].volume < 0)
+			{
+				sources[i].volume = 0;
+				sources[i].Stop();
+				break;
+			}
+			yield return new WaitForEndOfFrame();
+		}
+	}
 }

@@ -16,8 +16,13 @@ public class ScoreManager : MonoBehaviour
 
 	[SerializeField] private Score [] scores;
 	[SerializeField] private int[] MaxScores;
+	[SerializeField] private int bossLifeMax;
+	[SerializeField] private int heroLifeMax;
+	private int bossLife;
+	private int heroLife;
 
 	private int level = 0;
+	public bool InBossBattle=false;
 
 	//public int MaxScore;
 
@@ -26,21 +31,25 @@ public class ScoreManager : MonoBehaviour
 	
 	[SerializeField] private Slider scoreSlider;
 	[SerializeField] private Slider redSlider;
+	[SerializeField] private Slider bossSlider;
+	[SerializeField] private Slider heroSlider;
 	[SerializeField] private Text levelText;
+	[SerializeField] private Text heroText;
 	[SerializeField] private Text fail;
 
 	void Awake()
 	{
 		if (instance == null) instance = this;
-		scoreSlider.value = 0;
-		redSlider.value = 0;
-		scores = new Score[3];
+		
 	}
 	// Use this for initialization
 	void Start ()
 	{
-		
-
+		bossLife = bossLifeMax;
+		heroLife = heroLifeMax;
+		scoreSlider.value = 0;
+		redSlider.value = 0;
+		scores = new Score[6];
 	}
 	
 	// Update is called once per frame
@@ -62,10 +71,9 @@ public class ScoreManager : MonoBehaviour
 		if(index==0)redSlider.value = (float) scores[0].red / MaxScores[level];
 		if (redSlider.value > 0.25f)
 		{
-			fail.enabled = true;
-			Drum.instance.CleanMat();
-			Guitar.instance.CleanMat();
-			Time.timeScale = 0.1f;
+			lose();
+			
+			
 		}
 		else
 		{
@@ -76,17 +84,88 @@ public class ScoreManager : MonoBehaviour
 
 	public void Advance()
 	{
+		
 		level++;
-		levelText.text = "level " + level.ToString();
-		scoreSlider.value = 0;
-		redSlider.value = 0;
-		scores[0].score = 0;
-		scores[0].red = 0;
+		if (level < 4)
+		{
+			scoreSlider.value = 0;
+			redSlider.value = 0;
+			scores[0].score = 0;
+			scores[0].red = 0;
+			levelText.text = "Level " + level.ToString()+".";
+		}
+		if (level == 4)
+		{
+			InBossBattle = true;
+			levelText.text = "Boss";
+			heroText.enabled = true;
+			scoreSlider.gameObject.active = false;
+			redSlider.gameObject.active = false;
+			heroSlider.gameObject.active = true;
+			heroSlider.value = 1;
+			bossSlider.gameObject.active = true;
+			bossSlider.value = 1;
+			Boss.instance.ComeOut();
+		}
+		if (level > 4)
+		{
+			InBossBattle = false;
+			levelText.text = "Level Max";
+			heroText.enabled = false;
+			heroSlider.gameObject.active = false;
+			bossSlider.gameObject.active = false;
+			scoreSlider.gameObject.active = true;
+			scoreSlider.value = 1;
+
+		}
+
 	}
 
 	public void GetHit(string t)
 	{
+		switch (t)
+		{
+			case "Player":
+			{
+				print(t);
+				heroLife--;
+				if (heroLife < 0)
+				{
+					lose();
+				}
+				heroSlider.value = heroLife / heroLifeMax;
+				break;
+			}
+			case "Boss":
+			{
+				print(t);
+				bossLife--;
+				bossSlider.value = bossLife / bossLifeMax;
+				break;
+			}
+			case "Drum":
+			{
+				print(t);
+				Drum.instance.DePower();
+				break;
+			}
+			case "Guitar":
+			{
+				print(t);
+				Guitar.instance.DePower();
+				break;
+			}
+		}
 		
+		
+	}
+
+	private void lose()
+	{
+		//Drum.instance.CleanMat();
+		//Guitar.instance.CleanMat();
+		fail.enabled = true;
+		Time.timeScale = 0.1f;
 	}
 	
 	

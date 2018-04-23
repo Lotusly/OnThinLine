@@ -15,6 +15,11 @@ public class Drum : MonoBehaviour
 	[SerializeField] private Material ballMat;
 	[SerializeField] private Vector3 newPosition;
 	private bool controable = false;
+	public bool living = true;
+	private Coroutine cor;
+	[SerializeField] private GameObject missle;
+	[SerializeField] private Transform missleParent;
+
 
 	// Use this for initialization
 	void Awake()
@@ -23,7 +28,7 @@ public class Drum : MonoBehaviour
 	}
 	void Start ()
 	{
-	
+		CleanMat();
 		//original=0;
 	}
 	
@@ -38,8 +43,20 @@ public class Drum : MonoBehaviour
 
 	public void EnPower()
 	{
-		if(ballMat.color.a<200)ballMat.color+=new Color(0,0,0,unitPower/255);
+		if(ballMat.color.a<0.9f)ballMat.color+=new Color(0,0,0,unitPower/255);
 		
+	}
+	
+	public void DePower()
+	{
+		if (ballMat.color.a > 0.1f) ballMat.color -= new Color(0, 0, 0, unitPower*5 / 255);
+		else
+		{
+			living = false;
+			SoundController.instance.StopMusic(1);
+			transform.parent = null;
+			StopCoroutine(cor);
+		}
 	}
 
 	public void FlyAway()
@@ -61,6 +78,30 @@ public class Drum : MonoBehaviour
 	public void CleanMat()
 	{
 		ballMat.color = new Color(ballMat.color.r, ballMat.color.g, ballMat.color.b, 0);
+	}
+
+	public void EnterBattle()
+	{
+		cor = StartCoroutine("inBattle");
+	}
+
+	private IEnumerator inBattle()
+	{
+		yield return new WaitForSecondsRealtime((float)5/6);
+		while (true)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				GameObject newMissle = Instantiate(missle, missleParent);
+				newMissle.GetComponent<Node>().enabled = false;
+				newMissle.GetComponent<Missle>().enabled = true;
+				newMissle.transform.position = transform.position;
+				newMissle.tag = tag;
+				newMissle.GetComponent<Missle>().SetTarget(Boss.instance.transform);
+				yield return new WaitForSecondsRealtime((float)5/12);
+			}
+			yield return new WaitForSecondsRealtime((float)5/12);
+		}
 	}
 
 	/*void OnTriggerEnter(Collider other)

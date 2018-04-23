@@ -31,10 +31,10 @@ public class PlayerControl : MonoBehaviour
 	}
 	void Start ()
 	{
-		original = Input.GetAxis("Vertical");
-		Drum.instance.CleanMat();
-		Guitar.instance.CleanMat();
-		//original=0;
+		//original = Input.GetAxis("Vertical");
+		//Drum.instance.CleanMat();
+		//Guitar.instance.CleanMat();
+		original=0;
 	}
 	
 	// Update is called once per frame
@@ -72,7 +72,7 @@ public class PlayerControl : MonoBehaviour
 		}*/
 
 		//--------------------control position-----------------------------------
-		Vector3  expectedPosition = Vector3.up * (Input.GetAxisRaw("Vertical") - original);
+		Vector3  expectedPosition = Vector3.up * (Input.GetAxisRaw("Vertical") - original)*1.05f;
 		transform.localPosition += (expectedPosition - transform.localPosition)*Time.deltaTime*sinsitive;
 		//-----------------end control position-------------------------------------------
 		history.positionCount++;

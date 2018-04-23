@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
 
+	public static Boss instance;
 	[SerializeField] private float stableX;
 	[SerializeField] private GameObject missle;
 	[SerializeField] private Transform missleParent;
@@ -14,8 +15,14 @@ public class Boss : MonoBehaviour
 	private Coroutine cor;
 	// 0: not coming out
 	// 1: coming out
-	// 2: stop and shooting missles
-	// 3: stop shooting and explode
+	// 2: stop 
+	// 3: shooting missles
+	// 4: stop shooting and explode
+	private void Awake()
+	{
+		if (instance == null) instance = this;
+	}
+
 	// Use this for initialization
 	void Start () {
 		
@@ -29,10 +36,16 @@ public class Boss : MonoBehaviour
 			if (Mathf.Abs(transform.localPosition.x - stableX) < 0.1f)
 			{
 				state = 2;
-				cor = StartCoroutine("shootMissles");
+				//cor = StartCoroutine("shootMissles");
 			}
 		}
 		
+	}
+
+	public void EnterBattle()
+	{
+		state = 3;
+		cor = StartCoroutine("shootMissles");
 	}
 
 	public void ComeOut()
@@ -42,8 +55,18 @@ public class Boss : MonoBehaviour
 
 	public void Explode()
 	{
-		state = 3;
+		state = 4;
 		StopCoroutine(cor);
+		GetComponent<Floating>().enabled = false;
+		GetComponent<Rigidbody>().isKinematic = false;
+		ScoreManager.instance.Advance();
+		StartCoroutine("delayDestroy");
+	}
+
+	IEnumerator delayDestroy()
+	{
+		yield return new WaitForSeconds(5);
+		Destroy(gameObject);
 	}
 
 	IEnumerator shootMissles()
@@ -54,8 +77,40 @@ public class Boss : MonoBehaviour
 			GameObject newMissle = Instantiate(missle, missleParent);
 			newMissle.transform.position = transform.position;
 			newMissle.tag = tag;
-			newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
-			yield return new WaitForSecondsRealtime(0.3f);
+			switch (Mathf.FloorToInt(Random.value * 3))
+			{
+				case 0:
+				{
+					newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
+					break;
+				}
+				case 1:
+				{
+					if (Drum.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Drum.instance.transform);
+					}
+					else
+					{
+						newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
+					}
+					break;
+				}
+				case 2:
+				{
+					if (Guitar.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Guitar.instance.transform);
+					}
+					else
+					{
+						newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
+					}
+					break;
+				}
+			}
+			
+			yield return new WaitForSecondsRealtime((float)5/48);
 		}
 	}
 }
