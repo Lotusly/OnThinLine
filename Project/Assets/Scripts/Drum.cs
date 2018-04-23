@@ -14,6 +14,7 @@ public class Drum : MonoBehaviour
 	[SerializeField] private float unitPower;
 	[SerializeField] private Material ballMat;
 	[SerializeField] private Vector3 newPosition;
+	private bool controable = false;
 
 	// Use this for initialization
 	void Awake()

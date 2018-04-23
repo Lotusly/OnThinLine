@@ -9,6 +9,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
 
+	public static PlayerControl instance;
 	private float original;
 	[SerializeField] private LineRenderer history;
 
@@ -19,10 +20,20 @@ public class PlayerControl : MonoBehaviour
 	private Node drum;
 	public bool inDrum;
 
+	public bool twoDimensional = false;
+
+	public float control;
+
 	// Use this for initialization
+	void Awake()
+	{
+		if (instance == null) instance = this;
+	}
 	void Start ()
 	{
 		original = Input.GetAxis("Vertical");
+		Drum.instance.CleanMat();
+		Guitar.instance.CleanMat();
 		//original=0;
 	}
 	
@@ -34,31 +45,35 @@ public class PlayerControl : MonoBehaviour
 			hitDrum();
 			ScoreManager.instance.AddScore(1);
 		}
+		control = Input.GetAxisRaw("Vertical");
 		//----------------1 dimensional control speed-----------------------
-		Vector3 espectedSpeed=new Vector3(Input.GetAxis("Vertical")-original-transform.localPosition.y,0,0)*sinsitive;
-		speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
-		//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
-		transform.localPosition += Vector3.up * Time.deltaTime * speed.x ;
-		transform.LookAt(transform.position+new Vector3(-3,-speed.x,0));
-		
-		//float speed;
-		//speed=sinsitive * (Input.GetAxis("Vertical")-original-transform.localPosition.y);
-		//transform.localPosition += Vector3.up * Time.deltaTime * speed;
+		//if (!twoDimensional)
+		//{
+			/*Vector3 espectedSpeed = new Vector3(Input.GetAxisRaw("Vertical") - original - transform.localPosition.y, 0, 0)*sinsitive;
+			speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
+			transform.localPosition += Vector3.up * Time.deltaTime * speed.x;
+			transform.LookAt(transform.position + new Vector3(-3, -speed.x, 0));*/
+		//}
+
+
 		//-----------------------end 1 dimensional control speed------------------------------------
-		
-		//--------------2 dimensional control speed----------------------------
-		/*Vector3 espectedSpeed=new Vector3(Input.GetAxis("Vertical")-original-transform.localPosition.y,Input.GetAxis("Horizontal")-transform.localPosition.z,0)*sinsitive;
-		speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
-		//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
-		transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.forward*Time.deltaTime*speed.y;
-		transform.LookAt(transform.position+new Vector3(-3,speed.x,-speed.y));*/
-		
-		//-----------------end 2 dimensional control speed-------------------------------------------
-		
-		
-		
+		/*else
+		{
+			//--------------2 dimensional control speed----------------------------
+			//print("2dimen");
+			Vector3 espectedSpeed=new Vector3(Input.GetAxisRaw("Vertical")-original-transform.localPosition.y,Input.GetAxisRaw("Horizontal")-transform.localPosition.z,0)*sinsitive;
+			speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
+			//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
+			transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.forward*Time.deltaTime*speed.y;
+			transform.LookAt(transform.position+new Vector3(-3,speed.x,-speed.y));
+
+			//-----------------end 2 dimensional control speed-------------------------------------------
+
+		}*/
+
 		//--------------------control position-----------------------------------
-		//transform.localPosition = Vector3.up * (Input.GetAxis("Vertical")-original);
+		Vector3  expectedPosition = Vector3.up * (Input.GetAxisRaw("Vertical") - original);
+		transform.localPosition += (expectedPosition - transform.localPosition)*Time.deltaTime*sinsitive;
 		//-----------------end control position-------------------------------------------
 		history.positionCount++;
 		history.SetPosition(history.positionCount-1,transform.position);
@@ -89,6 +104,7 @@ public class PlayerControl : MonoBehaviour
 	{
 		drum.Hit();
 		Drum.instance.EnPower();
+		ScoreManager.instance.AddScore();
 		inDrum = false;
 		drum = null;
 	}

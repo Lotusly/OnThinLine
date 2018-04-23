@@ -60,7 +60,7 @@ public class ScoreManager : MonoBehaviour
 	{
 		scores[index].red++;
 		if(index==0)redSlider.value = (float) scores[0].red / MaxScores[level];
-		if (redSlider.value > 0.2f)
+		if (redSlider.value > 0.25f)
 		{
 			fail.enabled = true;
 			Drum.instance.CleanMat();
@@ -82,6 +82,11 @@ public class ScoreManager : MonoBehaviour
 		redSlider.value = 0;
 		scores[0].score = 0;
 		scores[0].red = 0;
+	}
+
+	public void GetHit(string t)
+	{
+		
 	}
 	
 	
