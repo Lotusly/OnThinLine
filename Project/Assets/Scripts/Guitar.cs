@@ -46,7 +46,7 @@ public class Guitar : MonoBehaviour
 
 	public void DePower()
 	{
-		if (ballMat.color.a > 0.1f) ballMat.color -= new Color(0, 0, 0, unitPower*5 / 255);
+		if (ballMat.color.a > 0.1f) ballMat.color -= new Color(0, 0, 0, unitPower / 255);
 		else
 		{
 			living = false;
@@ -96,6 +96,7 @@ public class Guitar : MonoBehaviour
 				newMissle.transform.position = transform.position;
 				newMissle.tag = tag;
 				newMissle.GetComponent<Missle>().SetTarget(Boss.instance.transform);
+				newMissle.GetComponent<Missle>().SetMaxSpeed(10);
 				yield return new WaitForSecondsRealtime((float)5/24);
 			}
 			yield return new WaitForSecondsRealtime((float)5/24);

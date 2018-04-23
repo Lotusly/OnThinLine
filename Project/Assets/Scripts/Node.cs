@@ -8,6 +8,8 @@ public class Node : MonoBehaviour
 	private AudioSource aud;
 
 	public bool hit = false;
+
+	//private bool inBattle = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -22,21 +24,36 @@ public class Node : MonoBehaviour
 	{
 		if (!tag.Equals("Drum") && other.tag.Equals("Player"))
 		{
+			aud=GetComponent<AudioSource>();
+			aud.clip = Resources.Load<AudioClip>(name);
+			aud.Play();
+			
 			if (tag.Equals("Guitar"))
 			{
 				Guitar.instance.EnPower();
-				ScoreManager.instance.AddScore(2);
+				ScoreManager.instance.AddScore();
 			}
 			else
 			{
-				ScoreManager.instance.AddScore();
+				if (ScoreManager.instance.InBossBattle)
+				{
+					Missle missle = GetComponent<Missle>();
+					missle.enabled = true;
+					missle.SetTarget(Boss.instance.transform);
+					missle.SetMaxSpeed(10);
+					this.enabled = false;
+					return;
+				}
+				else
+				{
+					ScoreManager.instance.AddScore();
+				}
 			}
-			hit = true;
-			aud=GetComponent<AudioSource>();
-			GetComponent<MeshRenderer>().enabled = false;
-			aud.clip = Resources.Load<AudioClip>(name);
-			aud.Play();
+			
+			hit = true;		
+			GetComponent<MeshRenderer>().enabled = false;		
 			StartCoroutine("DelayDestroy");
+			
 		}
 	}
 
@@ -55,5 +72,7 @@ public class Node : MonoBehaviour
 		GetComponent<MeshRenderer>().enabled = false;
 		StartCoroutine("DelayDestroy");
 	}
+
+	
 	
 }

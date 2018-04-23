@@ -59,6 +59,7 @@ public class ScoreManager : MonoBehaviour
 
 	public void AddScore(int index=0)
 	{
+		if (level >= 5) return;
 		scores[index].score++;
 		//TotalScore++;
 		if(index==0) scoreSlider.value = (float) scores[0].score / MaxScores[level];
@@ -67,13 +68,12 @@ public class ScoreManager : MonoBehaviour
 
 	public void Miss(int index=0)
 	{
+		if (level >= 5) return;
 		scores[index].red++;
 		if(index==0)redSlider.value = (float) scores[0].red / MaxScores[level];
 		if (redSlider.value > 0.25f)
 		{
-			lose();
-			
-			
+			lose();	
 		}
 		else
 		{
@@ -86,7 +86,7 @@ public class ScoreManager : MonoBehaviour
 	{
 		
 		level++;
-		if (level < 4)
+		if (level < 5)
 		{
 			scoreSlider.value = 0;
 			redSlider.value = 0;
@@ -94,7 +94,7 @@ public class ScoreManager : MonoBehaviour
 			scores[0].red = 0;
 			levelText.text = "Level " + level.ToString()+".";
 		}
-		if (level == 4)
+		if (level == 5)
 		{
 			InBossBattle = true;
 			levelText.text = "Boss";
@@ -107,7 +107,7 @@ public class ScoreManager : MonoBehaviour
 			bossSlider.value = 1;
 			Boss.instance.ComeOut();
 		}
-		if (level > 4)
+		if (level > 5)
 		{
 			InBossBattle = false;
 			levelText.text = "Level Max";

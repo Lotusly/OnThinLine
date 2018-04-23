@@ -17,7 +17,7 @@ public class MissJudge : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 
-		if (other.gameObject.GetComponent<Node>() != null && !other.gameObject.GetComponent<Node>().hit)
+		if (other.gameObject.GetComponent<Node>() != null &&other.gameObject.GetComponent<Node>().enabled && !other.gameObject.GetComponent<Node>().hit)
 		{
 			ScoreManager.instance.Miss();
 			Destroy(other.gameObject);

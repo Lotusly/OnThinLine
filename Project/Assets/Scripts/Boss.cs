@@ -9,6 +9,7 @@ public class Boss : MonoBehaviour
 	[SerializeField] private float stableX;
 	[SerializeField] private GameObject missle;
 	[SerializeField] private Transform missleParent;
+	private bool comingOut = false;
 
 	private int state=0;
 
@@ -30,12 +31,13 @@ public class Boss : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		if (state ==1)
+		if (comingOut)
 		{
 			transform.localPosition += new Vector3((stableX - transform.localPosition.x)*Time.deltaTime, 0, 0);
 			if (Mathf.Abs(transform.localPosition.x - stableX) < 0.1f)
 			{
-				state = 2;
+				comingOut = false;
+
 				//cor = StartCoroutine("shootMissles");
 			}
 		}
@@ -51,6 +53,7 @@ public class Boss : MonoBehaviour
 	public void ComeOut()
 	{
 		state = 1;
+		comingOut = true;
 	}
 
 	public void Explode()
