@@ -33,6 +33,7 @@ public class Node : MonoBehaviour
 			}
 			hit = true;
 			aud=GetComponent<AudioSource>();
+			GetComponent<MeshRenderer>().enabled = false;
 			aud.clip = Resources.Load<AudioClip>(name);
 			aud.Play();
 			StartCoroutine("DelayDestroy");

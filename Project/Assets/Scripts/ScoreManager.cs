@@ -6,19 +6,15 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
 	[Serializable] 
-	public class Score
+	public struct Score
 	{
 		public int score;
 		public int red;
 
-		Score()
-		{
-			score = 0;
-			red = 0;
-		}
+		
 	};
 
-	[SerializeField] public Score [] scores;
+	[SerializeField] private Score [] scores;
 	[SerializeField] private int[] MaxScores;
 
 	private int level = 0;
@@ -31,6 +27,7 @@ public class ScoreManager : MonoBehaviour
 	[SerializeField] private Slider scoreSlider;
 	[SerializeField] private Slider redSlider;
 	[SerializeField] private Text levelText;
+	[SerializeField] private Text fail;
 
 	void Awake()
 	{
@@ -56,12 +53,22 @@ public class ScoreManager : MonoBehaviour
 		scores[index].score++;
 		//TotalScore++;
 		if(index==0) scoreSlider.value = (float) scores[0].score / MaxScores[level];
+		if(scores[0].red+scores[0].score>=MaxScores[level]) Advance();
 	}
 
 	public void Miss(int index=0)
 	{
 		scores[index].red++;
 		if(index==0)redSlider.value = (float) scores[0].red / MaxScores[level];
+		if (redSlider.value > 0.2f)
+		{
+			fail.enabled = true;
+			Time.timeScale = 0.1f;
+		}
+		else
+		{
+			if(scores[0].red+scores[0].score>=MaxScores[level]) Advance();
+		}
 		
 	}
 
