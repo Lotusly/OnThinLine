@@ -57,6 +57,11 @@ public class Drum : MonoBehaviour
 		}
 	}
 
+	public void CleanMat()
+	{
+		ballMat.color = new Color(ballMat.color.r, ballMat.color.g, ballMat.color.b, 0);
+	}
+
 	/*void OnTriggerEnter(Collider other)
 	{
 		if (other.tag.Equals("Node"))

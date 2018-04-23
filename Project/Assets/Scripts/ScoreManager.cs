@@ -63,6 +63,8 @@ public class ScoreManager : MonoBehaviour
 		if (redSlider.value > 0.2f)
 		{
 			fail.enabled = true;
+			Drum.instance.CleanMat();
+			Guitar.instance.CleanMat();
 			Time.timeScale = 0.1f;
 		}
 		else

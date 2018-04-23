@@ -55,6 +55,11 @@ public class Guitar : MonoBehaviour
 			yield return new WaitForEndOfFrame();
 		}
 	}
+	
+	public void CleanMat()
+	{
+		ballMat.color = new Color(ballMat.color.r, ballMat.color.g, ballMat.color.b, 0);
+	}
 
 	/*void OnTriggerEnter(Collider other)
 	{
