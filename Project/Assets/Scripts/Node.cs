@@ -25,6 +25,11 @@ public class Node : MonoBehaviour
 			if (tag.Equals("Guitar"))
 			{
 				Guitar.instance.EnPower();
+				ScoreManager.instance.AddScore(2);
+			}
+			else
+			{
+				ScoreManager.instance.AddScore();
 			}
 			hit = true;
 			aud=GetComponent<AudioSource>();

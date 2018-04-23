@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour
 		if (inDrum && drum != null && Input.GetButtonDown("Fire1"))
 		{
 			hitDrum();
+			ScoreManager.instance.AddScore(1);
 		}
 		//----------------1 dimensional control speed-----------------------
 		Vector3 espectedSpeed=new Vector3(Input.GetAxis("Vertical")-original-transform.localPosition.y,0,0)*sinsitive;

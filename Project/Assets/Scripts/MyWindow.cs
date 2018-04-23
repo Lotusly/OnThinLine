@@ -22,6 +22,8 @@ public class MyWindow : EditorWindow
 	private string prefix;
 
 	private Vector2 scrollPos;
+
+	private int count;
 	// Add menu named "My Window" to the Window menu
 	[MenuItem("Window/My Window")]
 	static void Init()
@@ -70,12 +72,17 @@ public class MyWindow : EditorWindow
 		{
 			Generate();
 		}
+		count = Selection.objects.Length;
+		count = EditorGUILayout.IntField("Count", count);
+		
 		
 		if (EditorGUI.EndChangeCheck())
 		{
 			_serializedObject.ApplyModifiedProperties();
 		}
 	}
+	
+	
 
 	void Generate()
 	{

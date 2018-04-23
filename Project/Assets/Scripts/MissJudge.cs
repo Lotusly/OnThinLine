@@ -16,10 +16,12 @@ public class MissJudge : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag.Equals("Node"))
+
+		if (other.gameObject.GetComponent<Node>() != null && !other.gameObject.GetComponent<Node>().hit)
 		{
-			if(other.gameObject.GetComponent<Node>()==null || !other.gameObject.GetComponent<Node>().hit)
-				Destroy(other.gameObject);
+			ScoreManager.instance.Miss();
+			Destroy(other.gameObject);
 		}
+
 	}
 }
