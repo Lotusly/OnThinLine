@@ -118,7 +118,7 @@ public class PlayerControl : MonoBehaviour
 
 	public void MustKill()
 	{
-		
+		StartCoroutine(mustKill());
 	}
 
 	private IEnumerator mustKill()

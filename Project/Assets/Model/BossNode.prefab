@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inUse: 0
-  attack: 40
+  attack: 30
 --- !u!135 &135880606680535338
 SphereCollider:
   m_ObjectHideFlags: 1

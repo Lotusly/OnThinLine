@@ -127,7 +127,7 @@ public class ScoreManager : MonoBehaviour
 		{
 			case "Player":
 			{
-				print(t);
+				//print(t);
 				heroLife-=i;
 				if (heroLife < 0)
 				{
@@ -135,11 +135,12 @@ public class ScoreManager : MonoBehaviour
 					lose();
 				}
 				else heroSlider.value = (float)heroLife / heroLifeMax;
+				return;
 				break;
 			}
 			case "Boss":
 			{
-				//print(t);
+				print(t);
 				bossLife-=i;
 				if (bossLife < 0)
 				{
@@ -148,21 +149,26 @@ public class ScoreManager : MonoBehaviour
 					//Advance();
 				}
 				else bossSlider.value = (float)bossLife / bossLifeMax;
+				return;
 				break;
 			}
 			case "Drum":
 			{
 				//print(t);
 				Drum.instance.DePower();
+				return;
 				break;
 			}
 			case "Guitar":
 			{
 				//print(t);
 				Guitar.instance.DePower();
+				return;
 				break;
 			}
+			
 		}
+		print("no matching: "+t);
 		
 		
 	}

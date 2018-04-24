@@ -7274,7 +7274,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 91f668f76a948d74ab7ba8dc769a935c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7296,14 +7296,14 @@ RectTransform:
   m_GameObject: {fileID: 183971053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 9.456435, y: 4.998828, z: 1.0899999}
   m_Children: []
   m_Father: {fileID: 1228352250}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -30, y: -20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &189319487
@@ -14964,7 +14964,18 @@ MonoBehaviour:
   t: Player
   e:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1228352251}
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!65 &326831767
@@ -33545,7 +33556,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 692154865}
-  m_LocalRotation: {x: 0.50069875, y: -0.6165007, z: 0.16350171, w: 0.5852306}
+  m_LocalRotation: {x: 0.5006988, y: -0.61650074, z: 0.16350172, w: 0.58523065}
   m_LocalPosition: {x: 663.3333, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
@@ -38407,7 +38418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scores: []
   MaxScores: 2600000024000000610000009e0000002f00000060000000
-  bossLifeMax: 1000
+  bossLifeMax: 5000
   heroLifeMax: 1000
   heroLife: 0
   InBossBattle: 0
@@ -52223,7 +52234,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136350563}
-  m_LocalRotation: {x: 0.1189071, y: 0.56445915, z: 0.80138934, w: 0.15818337}
+  m_LocalRotation: {x: 0.11890712, y: 0.5644592, z: 0.80138946, w: 0.15818338}
   m_LocalPosition: {x: 386.6667, y: 1, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
