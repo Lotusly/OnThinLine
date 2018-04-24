@@ -83,6 +83,7 @@ public class Guitar : MonoBehaviour
 
 	private IEnumerator flyAway()
 	{
+		print("flyAway");
 		yield return null;
 		transform.parent = RootTransfer.instance.transform;
 		while (Vector3.Distance(transform.localPosition, newPosition) > 0.1f)
@@ -92,7 +93,18 @@ public class Guitar : MonoBehaviour
 		}
 		GetComponent<Floating>().enabled = true;
 		yield return new WaitForSeconds(2);
-		followDrum = true;
+		if (!ScoreManager.instance.InBossBattle)
+		{
+			print("not in battle");
+			followDrum = true;
+		}
+		else
+		{
+			print("battle");
+			Drum.instance.FindGuitarInDanger();
+
+		}
+
 	}
 	
 	public void CleanMat()
@@ -139,6 +151,7 @@ public class Guitar : MonoBehaviour
 
 	private IEnumerator flyToDrumCor()
 	{
+		print("flyToDrum");
 		GetComponent<Floating>().enabled = false;
 		yield return null;
 		float speed = 0;

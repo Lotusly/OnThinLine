@@ -42,53 +42,56 @@ public class PlayerControl : MonoBehaviour
 		//Drum.instance.CleanMat();
 		//Guitar.instance.CleanMat();
 		original=0;
-		mat.color = Color.white;
+		mat.color = new Color(1, 1, 1, 0.5f);
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (controlable)
+		if (living)
 		{
-			if (inDrum && drum != null && Input.GetButtonDown("Fire1"))
+			if (controlable)
 			{
-				hitDrum();
-				ScoreManager.instance.AddScore(1);
-			}
-			control = Input.GetAxisRaw("Vertical");
-			//----------------1 dimensional control speed-----------------------
-			//if (!twoDimensional)
-			//{
-			/*Vector3 espectedSpeed = new Vector3(Input.GetAxisRaw("Vertical") - original - transform.localPosition.y, 0, 0)*sinsitive;
-			speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
-			transform.localPosition += Vector3.up * Time.deltaTime * speed.x;
-			transform.LookAt(transform.position + new Vector3(-3, -speed.x, 0));*/
-			//}
-
-
-			//-----------------------end 1 dimensional control speed------------------------------------
-			/*else
-			{
-				//--------------2 dimensional control speed----------------------------
-				//print("2dimen");
-				Vector3 espectedSpeed=new Vector3(Input.GetAxisRaw("Vertical")-original-transform.localPosition.y,Input.GetAxisRaw("Horizontal")-transform.localPosition.z,0)*sinsitive;
+				if (inDrum && drum != null && Input.GetButtonDown("Fire1"))
+				{
+					hitDrum();
+					ScoreManager.instance.AddScore(1);
+				}
+				control = Input.GetAxisRaw("Vertical");
+				//----------------1 dimensional control speed-----------------------
+				//if (!twoDimensional)
+				//{
+				/*Vector3 espectedSpeed = new Vector3(Input.GetAxisRaw("Vertical") - original - transform.localPosition.y, 0, 0)*sinsitive;
 				speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
-				//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
-				transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.forward*Time.deltaTime*speed.y;
-				transform.LookAt(transform.position+new Vector3(-3,speed.x,-speed.y));
-	
-				//-----------------end 2 dimensional control speed-------------------------------------------
-	
-			}*/
+				transform.localPosition += Vector3.up * Time.deltaTime * speed.x;
+				transform.LookAt(transform.position + new Vector3(-3, -speed.x, 0));*/
+				//}
 
-			//--------------------control position-----------------------------------
-			Vector3 expectedPosition = Vector3.up * (Input.GetAxisRaw("Vertical") - original) * 1.05f;
-			transform.localPosition += (expectedPosition - transform.localPosition) * Time.deltaTime * sinsitive;
-			//-----------------end control position-------------------------------------------
+
+				//-----------------------end 1 dimensional control speed------------------------------------
+				/*else
+				{
+					//--------------2 dimensional control speed----------------------------
+					//print("2dimen");
+					Vector3 espectedSpeed=new Vector3(Input.GetAxisRaw("Vertical")-original-transform.localPosition.y,Input.GetAxisRaw("Horizontal")-transform.localPosition.z,0)*sinsitive;
+					speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
+					//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
+					transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.forward*Time.deltaTime*speed.y;
+					transform.LookAt(transform.position+new Vector3(-3,speed.x,-speed.y));
+		
+					//-----------------end 2 dimensional control speed-------------------------------------------
+		
+				}*/
+
+				//--------------------control position-----------------------------------
+				Vector3 expectedPosition = Vector3.up * (Input.GetAxisRaw("Vertical") - original) * 1.05f;
+				transform.localPosition += (expectedPosition - transform.localPosition) * Time.deltaTime * sinsitive;
+				//-----------------end control position-------------------------------------------
+			}
+			history.positionCount++;
+			history.SetPosition(history.positionCount - 1, transform.position);
 		}
-		history.positionCount++;
-		history.SetPosition(history.positionCount-1,transform.position);
-	
+
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -127,19 +130,27 @@ public class PlayerControl : MonoBehaviour
 
 	private IEnumerator mustKill()
 	{
-		print("enter mastkill");
+		//print("enter mastkill");
+		controlable = false;
 		while (mat.color.b>(float)10/255)
 		{
-			mat.color=new Color(mat.color.b-2*Time.deltaTime,1,mat.color.b-2*Time.deltaTime,mat.color.b-2*Time.deltaTime);
+			mat.color=new Color(mat.color.b-2*Time.deltaTime,1,mat.color.b-2*Time.deltaTime,mat.color.a-Time.deltaTime);
 			transform.localScale+=new Vector3(1f,1f,1f)*Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
-		controlable = false;
+		
 		Missle missle = gameObject.AddComponent<Missle>();
 		missle.SetMaxSpeed(10);
 		missle.SetTarget(Boss.instance.transform);
-		missle.SetAttack(4000);
+		missle.SetAttack(3800);
 		missle.SetInUse();
+	}
+
+	public void Die()
+	{
+		living = false;
+		GetComponent<MeshRenderer>().enabled = false;
+		GetComponent<TrailRenderer>().enabled = false;
 	}
 
 

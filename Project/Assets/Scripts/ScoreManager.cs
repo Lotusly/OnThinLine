@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour
 	[SerializeField] private int[] MaxScores;
 	[SerializeField] private int bossLifeMax;
 	[SerializeField] private int heroLifeMax;
-	private int bossLife;
+	public int bossLife;
 	public int heroLife;
 
 	private int level = 0;
@@ -111,16 +111,23 @@ public class ScoreManager : MonoBehaviour
 		}
 		if (level > 5)
 		{
-			InBossBattle = false;
+			return;
+			/*InBossBattle = false;
 			levelText.text = "Level Max";
 			heroText.enabled = false;
 			heroSlider.gameObject.active = false;
 			bossSlider.gameObject.active = false;
 			scoreSlider.gameObject.active = true;
-			scoreSlider.value = 1;
+			scoreSlider.value = 1;*/
 
 		}
 
+	}
+
+	public void ClearLife()
+	{
+		heroLife = 0;
+		heroSlider.value = (float)heroLife / heroLifeMax;
 	}
 
 	public void GetHit(string t,int i)
@@ -130,31 +137,39 @@ public class ScoreManager : MonoBehaviour
 			case "Player":
 			{
 				//print(t);
-				heroLife-=i;
-				if (heroLife < 0)
+				if (heroLife > 0)
 				{
-					heroSlider.value = 0;
-					PlayerControl.instance.living = false;
-					lose();
-					PlayerControl.instance.controlable = false;
-					//SingleCanvas.instance.FadeOut();
+					heroLife -= i;
+					if (heroLife <= 0)
+					{
+						heroSlider.value = 0;
+						heroSlider.value = (float) heroLife / heroLifeMax;
+						PlayerControl.instance.living = false;
+						lose();
+						PlayerControl.instance.controlable = false;
+						//SingleCanvas.instance.FadeOut();
+					}
+					else heroSlider.value = (float) heroLife / heroLifeMax;
+					return;
 				}
-				else heroSlider.value = (float)heroLife / heroLifeMax;
-				return;
 				break;
 			}
 			case "Boss":
 			{
-				print(t);
-				bossLife-=i;
-				if (bossLife < 0)
+				//print(t);
+				if (bossLife > 0)
 				{
-					bossSlider.value = 0;
-					Boss.instance.Explode();
-					//Advance();
+					bossLife -= i;
+					if (bossLife <= 0)
+					{
+						bossSlider.value = 0;
+						bossSlider.value = (float) bossLife / bossLifeMax;
+						Boss.instance.Explode();
+						//Advance();
+					}
+					else bossSlider.value = (float) bossLife / bossLifeMax;
+					return;
 				}
-				else bossSlider.value = (float)bossLife / bossLifeMax;
-				return;
 				break;
 			}
 			case "Drum":

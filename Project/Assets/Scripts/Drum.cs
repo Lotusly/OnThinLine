@@ -121,6 +121,12 @@ public class Drum : MonoBehaviour
 		followCor = StartCoroutine(findGuitarCloseCor());
 	}
 
+	public void FindGuitarInDanger()
+	{
+		newPosition = Guitar.instance.transform.localPosition+new Vector3(0.5f,-0.3f,0);
+		followCor = StartCoroutine(flyAway());
+	}
+
 	private IEnumerator findGuitarCloseCor()
 	{
 		yield return new WaitForSeconds(4);
@@ -131,6 +137,7 @@ public class Drum : MonoBehaviour
 		}
 		followCor = StartCoroutine(flyAway());
 	}
+	
 	
 
 	/*void OnTriggerEnter(Collider other)

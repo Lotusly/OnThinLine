@@ -56,7 +56,7 @@ public class Missle : MonoBehaviour
 	{
 		if (inUse)
 		{
-			if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Hitable")) && other.tag.Equals(target.tag))
+			if (other.gameObject.layer.Equals(target.gameObject.layer) )
 			{
 				ScoreManager.instance.GetHit(other.gameObject.tag,attack);
 				Explode();
@@ -68,7 +68,8 @@ public class Missle : MonoBehaviour
 	{
 		if (tag == "Player")
 		{
-			GetComponent<MeshRenderer>().enabled = false;
+			PlayerControl.instance.Die();
+			ScoreManager.instance.ClearLife();
 		}
 		else Destroy(gameObject);
 	}

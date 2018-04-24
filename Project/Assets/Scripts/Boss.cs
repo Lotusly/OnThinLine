@@ -88,33 +88,7 @@ public class Boss : MonoBehaviour
 			{
 				case 0:
 				{
-					if (Drum.instance.living && Guitar.instance.living)
-					{
-						newMissle.GetComponent<Missle>().SetTarget(Drum.instance.transform);
-					}
-					else newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
-					break;
-				}
-				case 1:
-				{
-					if (Drum.instance.living)
-					{
-						newMissle.GetComponent<Missle>().SetTarget(Drum.instance.transform);
-					}
-					else if (Guitar.instance.living)
-					{
-						newMissle.GetComponent<Missle>().SetTarget(Guitar.instance.transform);
-					}
-					else
-					{
-						newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
-
-					}
-					break;
-				}
-				case 2:
-				{
-					if (Guitar.instance.living)
+					/*if (Drum.instance.living && Guitar.instance.living)
 					{
 						newMissle.GetComponent<Missle>().SetTarget(Guitar.instance.transform);
 					}
@@ -124,8 +98,39 @@ public class Boss : MonoBehaviour
 					}
 					else
 					{
-						newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
+						newMissle.GetComponent<Missle>().SetTarget(Guitar.instance.transform);
+					}*/
+					if (Guitar.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Guitar.instance.transform);
 					}
+					else if (Drum.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Drum.instance.transform);
+					}
+					else newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
+					break;
+				}
+				case 1:
+				{
+					if (Guitar.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Guitar.instance.transform);
+					}
+					else if (Drum.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Drum.instance.transform);
+					}
+					else newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
+					break;
+				}
+				case 2:
+				{
+					if (Drum.instance.living && Guitar.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Drum.instance.transform);
+					}
+					else newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
 					break;
 				}
 			}

@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: 19836533}
   - component: {fileID: 19836534}
   - component: {fileID: 19836535}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -33557,7 +33557,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 692154865}
-  m_LocalRotation: {x: 0.50069875, y: -0.6165007, z: 0.16350171, w: 0.5852306}
+  m_LocalRotation: {x: 0.5006988, y: -0.61650074, z: 0.16350172, w: 0.58523065}
   m_LocalPosition: {x: 663.3333, y: -1, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
@@ -38421,6 +38421,7 @@ MonoBehaviour:
   MaxScores: 2600000024000000610000009e0000002f00000060000000
   bossLifeMax: 5000
   heroLifeMax: 1000
+  bossLife: 0
   heroLife: 0
   InBossBattle: 0
   scoreSlider: {fileID: 1303622959}
@@ -49708,7 +49709,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -52235,7 +52236,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136350563}
-  m_LocalRotation: {x: 0.11890712, y: 0.5644592, z: 0.80138946, w: 0.15818338}
+  m_LocalRotation: {x: 0.1189071, y: 0.56445915, z: 0.80138934, w: 0.15818337}
   m_LocalPosition: {x: 386.6667, y: 1, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
@@ -87377,7 +87378,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 649909846a484cf47a6c130009db5034, type: 2}
+  - {fileID: 2100000, guid: 5bf2dcac17654414f99731aee6a59411, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
