@@ -55,9 +55,12 @@ public class Drum : MonoBehaviour
 		{
 			living = false;
 			SoundController.instance.StopMusic(1);
-			transform.parent = null;
+			
 			Guitar.instance.LooseBound();
+			
 			StopCoroutine(cor);
+			transform.parent = null;
+			ballMat.color = Color.clear;
 		}
 	}
 
@@ -79,7 +82,7 @@ public class Drum : MonoBehaviour
 
 	public void CleanMat()
 	{
-		ballMat.color = new Color(ballMat.color.r, ballMat.color.g, ballMat.color.b, 0);
+		ballMat.color = new Color(0, 1, 1, 0);
 	}
 
 	public void EnterBattle()

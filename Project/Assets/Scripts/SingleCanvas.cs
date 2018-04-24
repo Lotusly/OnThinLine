@@ -10,6 +10,7 @@ public class SingleCanvas : MonoBehaviour
 	[SerializeField] private Image final;
 	[SerializeField] private Image background;
 	[SerializeField] private Text[] instructions;
+	private Coroutine cor;
 
 	private void Awake()
 	{
@@ -40,7 +41,8 @@ public class SingleCanvas : MonoBehaviour
 
 	public void FadeOut()
 	{
-		StartCoroutine(fadeOut());
+		if(cor==null)
+			cor=StartCoroutine(fadeOut());
 	}
 
 	private IEnumerator fadeOut()
@@ -51,13 +53,17 @@ public class SingleCanvas : MonoBehaviour
 			background.color=new Color(0,0,0,Mathf.Min(background.color.a+Time.deltaTime,1));
 			yield return new WaitForEndOfFrame();
 		}
+		//print("1");
 		while (final.color.a < 1)
 		{
-			background.color=new Color(0,0,0,Mathf.Min(final.color.a+Time.deltaTime,1));
+			final.color=new Color(1,1,1,Mathf.Min(final.color.a+Time.deltaTime,1));
 			yield return new WaitForEndOfFrame();
 		}
+		//print("2");
 		Camera.main.transform.parent = null;
+		SoundController.instance.transform.parent = null;
 		Destroy(PlayerControl.instance.transform.root.gameObject);
+		//print("3");
 	}
 
 	

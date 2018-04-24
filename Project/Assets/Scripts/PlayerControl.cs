@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 
@@ -26,7 +27,9 @@ public class PlayerControl : MonoBehaviour
 
 	public float control;
 
-	private bool controlable = true;
+	public bool controlable = true;
+
+	public bool living = true;
 
 	// Use this for initialization
 	void Awake()
@@ -39,6 +42,7 @@ public class PlayerControl : MonoBehaviour
 		//Drum.instance.CleanMat();
 		//Guitar.instance.CleanMat();
 		original=0;
+		mat.color = Color.white;
 	}
 	
 	// Update is called once per frame
@@ -123,16 +127,18 @@ public class PlayerControl : MonoBehaviour
 
 	private IEnumerator mustKill()
 	{
-		while (mat.color.b>10)
+		print("enter mastkill");
+		while (mat.color.b>(float)10/255)
 		{
 			mat.color=new Color(mat.color.b-2*Time.deltaTime,1,mat.color.b-2*Time.deltaTime,mat.color.b-2*Time.deltaTime);
-			transform.localScale+=new Vector3(0.5f,0.5f,0.5f)*Time.deltaTime;
+			transform.localScale+=new Vector3(1f,1f,1f)*Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
 		controlable = false;
 		Missle missle = gameObject.AddComponent<Missle>();
 		missle.SetMaxSpeed(10);
 		missle.SetTarget(Boss.instance.transform);
+		missle.SetAttack(4000);
 		missle.SetInUse();
 	}
 

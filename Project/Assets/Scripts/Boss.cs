@@ -11,6 +11,8 @@ public class Boss : MonoBehaviour
 	[SerializeField] private Transform missleParent;
 	private bool comingOut = false;
 
+	public bool living = true;
+
 	private int state=0;
 
 	private Coroutine cor;
@@ -59,23 +61,25 @@ public class Boss : MonoBehaviour
 	public void Explode()
 	{
 		state = 4;
+		living = false;
 		StopCoroutine(cor);
 		GetComponent<Floating>().enabled = false;
 		GetComponent<Rigidbody>().isKinematic = false;
 		ScoreManager.instance.Advance();
-		StartCoroutine("delayDestroy");
+		StartCoroutine("delayStop");
 	}
 
-	IEnumerator delayDestroy()
+	IEnumerator delayStop()
 	{
-		yield return new WaitForSeconds(5);
-		Destroy(gameObject);
+		yield return new WaitForSeconds(20);
+		GetComponent<Rigidbody>().isKinematic = true;
+		transform.parent = null;
 	}
 
 	IEnumerator shootMissles()
 	{
 		yield return null;
-		while (true)
+		while (living && PlayerControl.instance.living)
 		{
 			GameObject newMissle = Instantiate(missle, missleParent);
 			newMissle.transform.position = transform.position;
@@ -129,6 +133,11 @@ public class Boss : MonoBehaviour
 
 			
 			yield return new WaitForSecondsRealtime((float)5/6);
+		}
+		yield return new WaitForSeconds(3);
+		if (living)
+		{
+			ScoreManager.instance.lose();
 		}
 	}
 }

@@ -61,8 +61,11 @@ public class Guitar : MonoBehaviour
 			LooseBound();
 			GetComponent<Floating>().enabled = false;
 			SoundController.instance.StopMusic(2);
-			transform.parent = null;
+			
 			StopCoroutine(cor);
+			transform.parent = null;
+			ballMat.color = Color.clear;
+
 		}
 		
 	}
@@ -94,7 +97,7 @@ public class Guitar : MonoBehaviour
 	
 	public void CleanMat()
 	{
-		ballMat.color = new Color(ballMat.color.r, ballMat.color.g, ballMat.color.b, 0);
+		ballMat.color = new Color(1, 1, 0, 0);
 	}
 	
 	public void EnterBattle()

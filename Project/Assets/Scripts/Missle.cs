@@ -66,6 +66,10 @@ public class Missle : MonoBehaviour
 
 	public void Explode()
 	{
-		Destroy(gameObject);
+		if (tag == "Player")
+		{
+			GetComponent<MeshRenderer>().enabled = false;
+		}
+		else Destroy(gameObject);
 	}
 }

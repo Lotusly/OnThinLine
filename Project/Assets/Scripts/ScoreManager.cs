@@ -73,6 +73,8 @@ public class ScoreManager : MonoBehaviour
 		if(index==0)redSlider.value = (float) scores[0].red / MaxScores[level];
 		if (redSlider.value > 0.25f)
 		{
+			PlayerControl.instance.controlable = false;
+			PlayerControl.instance.living = false;
 			lose();	
 		}
 		else
@@ -132,7 +134,10 @@ public class ScoreManager : MonoBehaviour
 				if (heroLife < 0)
 				{
 					heroSlider.value = 0;
+					PlayerControl.instance.living = false;
 					lose();
+					PlayerControl.instance.controlable = false;
+					//SingleCanvas.instance.FadeOut();
 				}
 				else heroSlider.value = (float)heroLife / heroLifeMax;
 				return;
@@ -173,7 +178,7 @@ public class ScoreManager : MonoBehaviour
 		
 	}
 
-	private void lose()
+	public void lose()
 	{
 		//Drum.instance.CleanMat();
 		//Guitar.instance.CleanMat();
