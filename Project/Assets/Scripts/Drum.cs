@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +17,7 @@ public class Drum : MonoBehaviour
 	private bool controable = false;
 	public bool living = true;
 	private Coroutine cor;
+	private Coroutine followCor;
 	[SerializeField] private GameObject missle;
 	[SerializeField] private Transform missleParent;
 
@@ -49,7 +50,7 @@ public class Drum : MonoBehaviour
 	
 	public void DePower()
 	{
-		if (ballMat.color.a > 0.1f) ballMat.color -= new Color(0, 0, 0, unitPower / 255);
+		if (ballMat.color.a > 0.1f) ballMat.color -= new Color(0, 0, 0, unitPower*8 / 255);
 		else
 		{
 			living = false;
@@ -82,6 +83,7 @@ public class Drum : MonoBehaviour
 
 	public void EnterBattle()
 	{
+		if(followCor!=null) StopCoroutine(followCor);
 		cor = StartCoroutine("inBattle");
 	}
 
@@ -93,17 +95,37 @@ public class Drum : MonoBehaviour
 			for (int i = 0; i < 3; i++)
 			{
 				GameObject newMissle = Instantiate(missle, missleParent);
-				newMissle.GetComponent<Node>().enabled = false;
 				newMissle.GetComponent<Missle>().enabled = true;
 				newMissle.transform.position = transform.position;
 				newMissle.tag = tag;
 				newMissle.GetComponent<Missle>().SetTarget(Boss.instance.transform);
 				newMissle.GetComponent<Missle>().SetMaxSpeed(10);
+				newMissle.GetComponent<Missle>().SetInUse();
+
 				yield return new WaitForSecondsRealtime((float)5/12);
 			}
 			yield return new WaitForSecondsRealtime((float)5/12);
 		}
 	}
+
+	public void FindGuitarClose()
+	{
+		if(followCor!=null) StopCoroutine(followCor);
+
+		followCor = StartCoroutine(findGuitarCloseCor());
+	}
+
+	private IEnumerator findGuitarCloseCor()
+	{
+		yield return new WaitForSeconds(5);
+		newPosition = new Vector3(Random.Range(-3f,10.7f),Random.Range(-3f,4.2f),0);
+		while (Vector3.Distance(newPosition, transform.localPosition) < 5)
+		{
+			newPosition = new Vector3(Random.Range(-3f,10.7f),Random.Range(-3f,4.2f),0);
+		}
+		followCor = StartCoroutine(flyAway());
+	}
+	
 
 	/*void OnTriggerEnter(Collider other)
 	{

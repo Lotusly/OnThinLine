@@ -20,7 +20,7 @@ public class MissJudge : MonoBehaviour {
 		if (other.gameObject.GetComponent<Node>() != null &&other.gameObject.GetComponent<Node>().enabled && !other.gameObject.GetComponent<Node>().hit)
 		{
 			ScoreManager.instance.Miss();
-			Destroy(other.gameObject);
+			//Destroy(other.gameObject);
 		}
 
 	}

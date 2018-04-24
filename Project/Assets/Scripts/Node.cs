@@ -9,10 +9,12 @@ public class Node : MonoBehaviour
 
 	public bool hit = false;
 
+	public Missle missle;
+
 	//private bool inBattle = false;
 	// Use this for initialization
 	void Start () {
-		
+		missle = GetComponent<Missle>();
 	}
 	
 	// Update is called once per frame
@@ -22,8 +24,10 @@ public class Node : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
+		if (hit) return;
 		if (!tag.Equals("Drum") && other.tag.Equals("Player"))
 		{
+			
 			aud=GetComponent<AudioSource>();
 			aud.clip = Resources.Load<AudioClip>(name);
 			aud.Play();
@@ -37,11 +41,16 @@ public class Node : MonoBehaviour
 			{
 				if (ScoreManager.instance.InBossBattle)
 				{
-					Missle missle = GetComponent<Missle>();
-					missle.enabled = true;
+					//print("inMissle");
+					hit = true;
+					
 					missle.SetTarget(Boss.instance.transform);
 					missle.SetMaxSpeed(10);
-					this.enabled = false;
+					missle.SetInUse();
+					//print("outMissle");
+					Destroy(this);
+					//this.enabled = false;
+					
 					return;
 				}
 				else

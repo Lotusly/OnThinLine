@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.UI;
 
 
 public class Guitar : MonoBehaviour
@@ -16,8 +15,11 @@ public class Guitar : MonoBehaviour
 	[SerializeField] private Vector3 newPosition;
 	public bool living = true;
 	private Coroutine cor;
+	private Coroutine followCor;
 	[SerializeField] private GameObject missle;
 	[SerializeField] private Transform missleParent;
+
+	private bool followDrum = false;
 
 	// Use this for initialization
 	void Awake()
@@ -36,6 +38,12 @@ public class Guitar : MonoBehaviour
 		
 		history.positionCount++;
 		history.SetPosition(history.positionCount-1,transform.position);
+
+		if (followDrum && Vector3.Distance(transform.position, Drum.instance.transform.position)>2)
+		{
+			followDrum = false;
+			flyToDrum();
+		}
 	
 	}
 
@@ -46,10 +54,11 @@ public class Guitar : MonoBehaviour
 
 	public void DePower()
 	{
-		if (ballMat.color.a > 0.1f) ballMat.color -= new Color(0, 0, 0, unitPower / 255);
+		if (ballMat.color.a > 0.1f) ballMat.color -= new Color(0, 0, 0, unitPower*8 / 255);
 		else
 		{
 			living = false;
+			GetComponent<Floating>().enabled = false;
 			SoundController.instance.StopMusic(2);
 			transform.parent = null;
 			StopCoroutine(cor);
@@ -59,7 +68,7 @@ public class Guitar : MonoBehaviour
 
 	public void FlyAway()
 	{
-		StartCoroutine("flyAway");
+		cor=StartCoroutine("flyAway");
 	}
 
 	private IEnumerator flyAway()
@@ -71,6 +80,9 @@ public class Guitar : MonoBehaviour
 			transform.localPosition += (newPosition - transform.localPosition) * Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
+		GetComponent<Floating>().enabled = true;
+		yield return new WaitForSeconds(2);
+		followDrum = true;
 	}
 	
 	public void CleanMat()
@@ -81,6 +93,9 @@ public class Guitar : MonoBehaviour
 	public void EnterBattle()
 	{
 		cor = StartCoroutine("inBattle");
+		if(followCor!=null) StopCoroutine(followCor);
+		followDrum = false;
+		GetComponent<Floating>().enabled = true;
 	}
 
 	private IEnumerator inBattle()
@@ -91,16 +106,42 @@ public class Guitar : MonoBehaviour
 			for (int i = 0; i < 7; i++)
 			{
 				GameObject newMissle = Instantiate(missle, missleParent);
-				newMissle.GetComponent<Node>().enabled = false;
 				newMissle.GetComponent<Missle>().enabled = true;
 				newMissle.transform.position = transform.position;
 				newMissle.tag = tag;
 				newMissle.GetComponent<Missle>().SetTarget(Boss.instance.transform);
 				newMissle.GetComponent<Missle>().SetMaxSpeed(10);
+				newMissle.GetComponent<Missle>().SetInUse();
 				yield return new WaitForSecondsRealtime((float)5/24);
 			}
 			yield return new WaitForSecondsRealtime((float)5/24);
 		}
+		
+	}
+
+	private void flyToDrum()
+	{
+		//newPosition = Drum.instance.transform.localPosition;
+		followCor=StartCoroutine(flyToDrumCor());
+	}
+
+	private IEnumerator flyToDrumCor()
+	{
+		GetComponent<Floating>().enabled = false;
+		yield return null;
+		float speed = 0;
+		Vector3 direction;
+		while (Vector3.Distance(transform.position, Drum.instance.transform.position) > 1)
+		{
+			speed = Mathf.Min(10, speed + Time.deltaTime * 10);
+			direction = (Drum.instance.transform.position - transform.position);
+			transform.localPosition += Mathf.Min(speed,direction.magnitude*3)*direction.normalized * Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		GetComponent<Floating>().enabled = true;
+		GetComponent<Floating>().SetGoodOrigin();
+		followDrum = true;
+		Drum.instance.FindGuitarClose();
 	}
 
 	/*void OnTriggerEnter(Collider other)

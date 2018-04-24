@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
 	[SerializeField] private int bossLifeMax;
 	[SerializeField] private int heroLifeMax;
 	private int bossLife;
-	private int heroLife;
+	public int heroLife;
 
 	private int level = 0;
 	public bool InBossBattle=false;
@@ -121,37 +121,37 @@ public class ScoreManager : MonoBehaviour
 
 	}
 
-	public void GetHit(string t)
+	public void GetHit(string t,int i)
 	{
 		switch (t)
 		{
 			case "Player":
 			{
 				print(t);
-				heroLife--;
+				heroLife-=i;
 				if (heroLife < 0)
 				{
 					lose();
 				}
-				heroSlider.value = heroLife / heroLifeMax;
+				heroSlider.value = (float)heroLife / heroLifeMax;
 				break;
 			}
 			case "Boss":
 			{
-				print(t);
-				bossLife--;
-				bossSlider.value = bossLife / bossLifeMax;
+				//print(t);
+				bossLife-=i;
+				bossSlider.value = (float)bossLife / bossLifeMax;
 				break;
 			}
 			case "Drum":
 			{
-				print(t);
+				//print(t);
 				Drum.instance.DePower();
 				break;
 			}
 			case "Guitar":
 			{
-				print(t);
+				//print(t);
 				Guitar.instance.DePower();
 				break;
 			}

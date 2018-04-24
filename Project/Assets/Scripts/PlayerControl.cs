@@ -109,5 +109,10 @@ public class PlayerControl : MonoBehaviour
 		drum = null;
 	}
 
+	public void SetMissle(Missle missle)
+	{
+		
+	}
+
 
 }

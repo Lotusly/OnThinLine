@@ -8,6 +8,8 @@ public class Missle : MonoBehaviour
 	private Transform target;
 	private float speed = 0;
 	private float maxSpeed = 5;
+	public bool inUse = false;
+	[SerializeField] private int attack=1;
 	
 	// Use this for initialization
 	void Start () {
@@ -17,12 +19,15 @@ public class Missle : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (target == null) return;
-		Vector3 d = target.position - transform.position;
-		if (d.magnitude > 0.1f)
+		if (inUse)
 		{
-			speed = Mathf.Min(maxSpeed, speed + maxSpeed * Time.deltaTime);
-			transform.position += speed*d.normalized * Time.deltaTime;
+			if (target == null) return;
+			Vector3 d = target.position - transform.position;
+			if (d.magnitude > 0.1f)
+			{
+				speed = Mathf.Min(maxSpeed, speed + maxSpeed * Time.deltaTime);
+				transform.position += speed * d.normalized * Time.deltaTime;
+			}
 		}
 	}
 
@@ -32,6 +37,11 @@ public class Missle : MonoBehaviour
 		
 	}
 
+	public void SetInUse()
+	{
+		inUse = true;
+	}
+
 	public void SetMaxSpeed(float s)
 	{
 		maxSpeed = s;
@@ -39,10 +49,13 @@ public class Missle : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Hitable")) && !other.tag.Equals(tag))
+		if (inUse)
 		{
-			ScoreManager.instance.GetHit(other.gameObject.tag);
-			Explode();
+			if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Hitable")) && other.tag.Equals(target.tag))
+			{
+				ScoreManager.instance.GetHit(other.gameObject.tag,attack);
+				Explode();
+			}
 		}
 	}
 

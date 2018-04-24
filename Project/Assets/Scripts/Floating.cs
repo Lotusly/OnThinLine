@@ -13,11 +13,11 @@ public class Floating : MonoBehaviour
 	
 	[SerializeField] private float acceleration;
 
-	private int acsent=1;
+	public int acsent=1;
 
-	[SerializeField] private float heightOriginal;
+	public  float heightOriginal;
 
-	private float speed;
+	public float speed;
 	// Use this for initialization
 	void Start ()
 	{
@@ -42,11 +42,12 @@ public class Floating : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter(Collider other)
+	public void SetGoodOrigin()
 	{
-		if (other.gameObject.tag == "Player")
-		{
-			transform.root.gameObject.active = false;
-		}
+		heightOriginal = transform.position.y-heightRange;
+		speed = 0;
+		acsent = 1;
 	}
+
+	
 }

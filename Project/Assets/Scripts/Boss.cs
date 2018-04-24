@@ -84,7 +84,11 @@ public class Boss : MonoBehaviour
 			{
 				case 0:
 				{
-					newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
+					if (Drum.instance.living && Guitar.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Drum.instance.transform);
+					}
+					else newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
 					break;
 				}
 				case 1:
@@ -112,8 +116,10 @@ public class Boss : MonoBehaviour
 					break;
 				}
 			}
+			newMissle.GetComponent<Missle>().SetInUse();
+
 			
-			yield return new WaitForSecondsRealtime((float)5/48);
+			yield return new WaitForSecondsRealtime((float)5/6);
 		}
 	}
 }

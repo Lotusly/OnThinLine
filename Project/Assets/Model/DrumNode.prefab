@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33283320176932850}
   - component: {fileID: 23815623542977836}
   - component: {fileID: 82185785510742598}
-  - component: {fileID: 114840664146276906}
   - component: {fileID: 96688073042786720}
   - component: {fileID: 114863887484397164}
   - component: {fileID: 135145144676429188}
@@ -256,18 +255,6 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
---- !u!114 &114840664146276906
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1914845282802788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bbf98179e04114458c1ed707bd3779e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hit: 0
 --- !u!114 &114863887484397164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,6 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11ecef49780e9b4780fdb160105eb3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inUse: 0
+  attack: 7
 --- !u!135 &135145144676429188
 SphereCollider:
   m_ObjectHideFlags: 1
