@@ -56,6 +56,7 @@ public class Drum : MonoBehaviour
 			living = false;
 			SoundController.instance.StopMusic(1);
 			transform.parent = null;
+			Guitar.instance.LooseBound();
 			StopCoroutine(cor);
 		}
 	}
@@ -84,6 +85,8 @@ public class Drum : MonoBehaviour
 	public void EnterBattle()
 	{
 		if(followCor!=null) StopCoroutine(followCor);
+		newPosition = new Vector3(3,-1.5f,0);
+		StartCoroutine(flyAway());
 		cor = StartCoroutine("inBattle");
 	}
 
@@ -117,7 +120,7 @@ public class Drum : MonoBehaviour
 
 	private IEnumerator findGuitarCloseCor()
 	{
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(4);
 		newPosition = new Vector3(Random.Range(-3f,10.7f),Random.Range(-3f,4.2f),0);
 		while (Vector3.Distance(newPosition, transform.localPosition) < 5)
 		{

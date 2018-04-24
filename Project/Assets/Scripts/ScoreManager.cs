@@ -131,16 +131,23 @@ public class ScoreManager : MonoBehaviour
 				heroLife-=i;
 				if (heroLife < 0)
 				{
+					heroSlider.value = 0;
 					lose();
 				}
-				heroSlider.value = (float)heroLife / heroLifeMax;
+				else heroSlider.value = (float)heroLife / heroLifeMax;
 				break;
 			}
 			case "Boss":
 			{
 				//print(t);
 				bossLife-=i;
-				bossSlider.value = (float)bossLife / bossLifeMax;
+				if (bossLife < 0)
+				{
+					bossSlider.value = 0;
+					Boss.instance.Explode();
+					//Advance();
+				}
+				else bossSlider.value = (float)bossLife / bossLifeMax;
 				break;
 			}
 			case "Drum":

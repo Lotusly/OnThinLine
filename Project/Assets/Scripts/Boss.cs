@@ -97,9 +97,14 @@ public class Boss : MonoBehaviour
 					{
 						newMissle.GetComponent<Missle>().SetTarget(Drum.instance.transform);
 					}
+					else if (Guitar.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Guitar.instance.transform);
+					}
 					else
 					{
 						newMissle.GetComponent<Missle>().SetTarget(PlayerControl.instance.transform);
+
 					}
 					break;
 				}
@@ -108,6 +113,10 @@ public class Boss : MonoBehaviour
 					if (Guitar.instance.living)
 					{
 						newMissle.GetComponent<Missle>().SetTarget(Guitar.instance.transform);
+					}
+					else if (Drum.instance.living)
+					{
+						newMissle.GetComponent<Missle>().SetTarget(Drum.instance.transform);
 					}
 					else
 					{

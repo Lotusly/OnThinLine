@@ -15,6 +15,8 @@ public class PlayerControl : MonoBehaviour
 
 	[SerializeField] private float sinsitive;
 
+	[SerializeField] private Material mat;
+
 	private Vector3 speed = Vector3.zero;
 
 	private Node drum;
@@ -23,6 +25,8 @@ public class PlayerControl : MonoBehaviour
 	public bool twoDimensional = false;
 
 	public float control;
+
+	private bool controlable = true;
 
 	// Use this for initialization
 	void Awake()
@@ -40,41 +44,44 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (inDrum && drum != null && Input.GetButtonDown("Fire1"))
+		if (controlable)
 		{
-			hitDrum();
-			ScoreManager.instance.AddScore(1);
-		}
-		control = Input.GetAxisRaw("Vertical");
-		//----------------1 dimensional control speed-----------------------
-		//if (!twoDimensional)
-		//{
+			if (inDrum && drum != null && Input.GetButtonDown("Fire1"))
+			{
+				hitDrum();
+				ScoreManager.instance.AddScore(1);
+			}
+			control = Input.GetAxisRaw("Vertical");
+			//----------------1 dimensional control speed-----------------------
+			//if (!twoDimensional)
+			//{
 			/*Vector3 espectedSpeed = new Vector3(Input.GetAxisRaw("Vertical") - original - transform.localPosition.y, 0, 0)*sinsitive;
 			speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
 			transform.localPosition += Vector3.up * Time.deltaTime * speed.x;
 			transform.LookAt(transform.position + new Vector3(-3, -speed.x, 0));*/
-		//}
+			//}
 
 
-		//-----------------------end 1 dimensional control speed------------------------------------
-		/*else
-		{
-			//--------------2 dimensional control speed----------------------------
-			//print("2dimen");
-			Vector3 espectedSpeed=new Vector3(Input.GetAxisRaw("Vertical")-original-transform.localPosition.y,Input.GetAxisRaw("Horizontal")-transform.localPosition.z,0)*sinsitive;
-			speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
-			//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
-			transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.forward*Time.deltaTime*speed.y;
-			transform.LookAt(transform.position+new Vector3(-3,speed.x,-speed.y));
+			//-----------------------end 1 dimensional control speed------------------------------------
+			/*else
+			{
+				//--------------2 dimensional control speed----------------------------
+				//print("2dimen");
+				Vector3 espectedSpeed=new Vector3(Input.GetAxisRaw("Vertical")-original-transform.localPosition.y,Input.GetAxisRaw("Horizontal")-transform.localPosition.z,0)*sinsitive;
+				speed = speed + (espectedSpeed - speed) * Time.deltaTime * 10f;
+				//if (speed.magnitude > 7) speed = speed * (7 / speed.magnitude);
+				transform.localPosition += Vector3.up * Time.deltaTime * speed.x + Vector3.forward*Time.deltaTime*speed.y;
+				transform.LookAt(transform.position+new Vector3(-3,speed.x,-speed.y));
+	
+				//-----------------end 2 dimensional control speed-------------------------------------------
+	
+			}*/
 
-			//-----------------end 2 dimensional control speed-------------------------------------------
-
-		}*/
-
-		//--------------------control position-----------------------------------
-		Vector3  expectedPosition = Vector3.up * (Input.GetAxisRaw("Vertical") - original)*1.05f;
-		transform.localPosition += (expectedPosition - transform.localPosition)*Time.deltaTime*sinsitive;
-		//-----------------end control position-------------------------------------------
+			//--------------------control position-----------------------------------
+			Vector3 expectedPosition = Vector3.up * (Input.GetAxisRaw("Vertical") - original) * 1.05f;
+			transform.localPosition += (expectedPosition - transform.localPosition) * Time.deltaTime * sinsitive;
+			//-----------------end control position-------------------------------------------
+		}
 		history.positionCount++;
 		history.SetPosition(history.positionCount-1,transform.position);
 	
@@ -109,9 +116,24 @@ public class PlayerControl : MonoBehaviour
 		drum = null;
 	}
 
-	public void SetMissle(Missle missle)
+	public void MustKill()
 	{
 		
+	}
+
+	private IEnumerator mustKill()
+	{
+		while (mat.color.b>10)
+		{
+			mat.color=new Color(mat.color.b-2*Time.deltaTime,1,mat.color.b-2*Time.deltaTime,mat.color.b-2*Time.deltaTime);
+			transform.localScale+=new Vector3(0.5f,0.5f,0.5f)*Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		controlable = false;
+		Missle missle = gameObject.AddComponent<Missle>();
+		missle.SetMaxSpeed(10);
+		missle.SetTarget(Boss.instance.transform);
+		missle.SetInUse();
 	}
 
 

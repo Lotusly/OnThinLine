@@ -58,12 +58,19 @@ public class Guitar : MonoBehaviour
 		else
 		{
 			living = false;
+			LooseBound();
 			GetComponent<Floating>().enabled = false;
 			SoundController.instance.StopMusic(2);
 			transform.parent = null;
 			StopCoroutine(cor);
 		}
 		
+	}
+
+	public void LooseBound()
+	{
+		if(followCor!=null) StopCoroutine(followCor);
+		followDrum = false;
 	}
 
 	public void FlyAway()
@@ -95,7 +102,9 @@ public class Guitar : MonoBehaviour
 		cor = StartCoroutine("inBattle");
 		if(followCor!=null) StopCoroutine(followCor);
 		followDrum = false;
-		GetComponent<Floating>().enabled = true;
+		newPosition = new Vector3(3,1.5f,0);
+		StartCoroutine(flyAway());
+		GetComponent<Floating>().enabled = false;
 	}
 
 	private IEnumerator inBattle()

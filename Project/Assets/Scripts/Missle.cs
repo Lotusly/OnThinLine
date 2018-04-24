@@ -47,6 +47,11 @@ public class Missle : MonoBehaviour
 		maxSpeed = s;
 	}
 
+	public void SetAttack(int i)
+	{
+		attack = i;
+	}
+
 	void OnTriggerEnter(Collider other)
 	{
 		if (inUse)
