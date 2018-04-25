@@ -84,6 +84,11 @@ public class ScoreManager : MonoBehaviour
 		
 	}
 
+	public void EnterBattle()
+	{
+		InBossBattle = true;
+	}
+
 	public void Advance()
 	{
 		
@@ -98,7 +103,7 @@ public class ScoreManager : MonoBehaviour
 		}
 		if (level == 5)
 		{
-			InBossBattle = true;
+			//InBossBattle = true;
 			levelText.text = "Boss";
 			heroText.enabled = true;
 			scoreSlider.gameObject.active = false;

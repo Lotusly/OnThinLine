@@ -79,6 +79,7 @@ public class Node : MonoBehaviour
 		aud.clip = Resources.Load<AudioClip>(name);
 		aud.Play();
 		GetComponent<MeshRenderer>().enabled = false;
+		if (GetComponent<LineRenderer>() != null) GetComponent<LineRenderer>().enabled = false;
 		StartCoroutine("DelayDestroy");
 	}
 

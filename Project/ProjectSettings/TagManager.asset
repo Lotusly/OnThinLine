@@ -9,6 +9,7 @@ TagManager:
   - Drum
   - Guitar
   - Boss
+  - Root
   layers:
   - Default
   - TransparentFX
