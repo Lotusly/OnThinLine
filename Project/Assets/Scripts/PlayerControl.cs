@@ -31,6 +31,8 @@ public class PlayerControl : MonoBehaviour
 
 	public bool living = true;
 
+	public List<Vector3> historyRecords;
+
 	// Use this for initialization
 	void Awake()
 	{
@@ -43,6 +45,9 @@ public class PlayerControl : MonoBehaviour
 		//Guitar.instance.CleanMat();
 		original=0;
 		mat.color = new Color(1, 1, 1, 0.5f);
+		historyRecords = new List<Vector3>();
+		historyRecords.Add(history.GetPosition(0));
+		historyRecords.Add(history.GetPosition(1));
 	}
 	
 	// Update is called once per frame
@@ -90,6 +95,13 @@ public class PlayerControl : MonoBehaviour
 			}
 			history.positionCount++;
 			history.SetPosition(history.positionCount - 1, transform.position);
+			historyRecords.Add(transform.position);
+			if (history.positionCount > 1000)
+			{
+				historyRecords.RemoveRange(0,300);
+				history.positionCount -=300;
+				history.SetPositions(historyRecords.ToArray());
+			}
 		}
 
 	}
@@ -128,6 +140,11 @@ public class PlayerControl : MonoBehaviour
 		StartCoroutine(mustKill());
 	}
 
+	public void Restart()
+	{
+		SingleCanvas.instance.FadeOut(false);
+	}
+
 	private IEnumerator mustKill()
 	{
 		//print("enter mastkill");
@@ -151,6 +168,17 @@ public class PlayerControl : MonoBehaviour
 		living = false;
 		GetComponent<MeshRenderer>().enabled = false;
 		GetComponent<TrailRenderer>().enabled = false;
+	}
+
+	public void EnterGame()
+	{
+		StartCoroutine(enterGame());
+	}
+	private IEnumerator enterGame()
+	{
+		GetComponent<TrailRenderer>().enabled = false;
+		yield return new WaitForSecondsRealtime(0.5f);
+		GetComponent<TrailRenderer>().enabled = true;
 	}
 
 

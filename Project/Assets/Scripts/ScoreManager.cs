@@ -203,7 +203,8 @@ public class ScoreManager : MonoBehaviour
 		//Drum.instance.CleanMat();
 		//Guitar.instance.CleanMat();
 		fail.enabled = true;
-		Time.timeScale = 0.1f;
+		Time.timeScale = 0.25f;
+		PlayerControl.instance.Restart();
 	}
 	
 	

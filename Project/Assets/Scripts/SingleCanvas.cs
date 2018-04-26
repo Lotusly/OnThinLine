@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SingleCanvas : MonoBehaviour
@@ -39,13 +41,13 @@ public class SingleCanvas : MonoBehaviour
 		instructions[i].enabled = false;
 	}
 
-	public void FadeOut()
+	public void FadeOut(bool withCG)
 	{
 		if(cor==null)
-			cor=StartCoroutine(fadeOut());
+			cor=StartCoroutine(fadeOut(withCG));
 	}
 
-	private IEnumerator fadeOut()
+	private IEnumerator fadeOut(bool withCG)
 	{
 		yield return null;
 		while (background.color.a < 1)
@@ -53,7 +55,30 @@ public class SingleCanvas : MonoBehaviour
 			background.color=new Color(0,0,0,Mathf.Min(background.color.a+Time.deltaTime,1));
 			yield return new WaitForEndOfFrame();
 		}
+		cor = null;
+		if (withCG)
+		{
+			showCG();
+		}
+		else
+		{
+			SceneManager.LoadScene("Main");
+		}
 		//print("1");
+
+		//print("3");
+	}
+
+
+	public void ShowCG()
+	{
+		if(cor==null)
+			cor=StartCoroutine(showCG());
+	}
+
+	private IEnumerator showCG()
+	{
+		yield return null;
 		while (final.color.a < 1)
 		{
 			final.color=new Color(1,1,1,Mathf.Min(final.color.a+Time.deltaTime,1));
@@ -63,7 +88,7 @@ public class SingleCanvas : MonoBehaviour
 		Camera.main.transform.parent = null;
 		SoundController.instance.transform.parent = null;
 		Destroy(PlayerControl.instance.transform.root.gameObject);
-		//print("3");
+		
 	}
 
 	

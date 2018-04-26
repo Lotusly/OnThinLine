@@ -9,6 +9,10 @@ public class RootTransfer : MonoBehaviour
 	public float Speed;
 
 	public static RootTransfer instance;
+
+	private bool inGame = false;
+
+	[SerializeField] private Transform origin;
 	// Use this for initialization
 	private void Awake()
 	{
@@ -22,6 +26,16 @@ public class RootTransfer : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		transform.position += -Vector3.left * Speed * Time.deltaTime;
+		if (inGame) transform.position += -Vector3.left * Speed * Time.deltaTime;
+		else
+		{
+			transform.RotateAround(origin.position,Vector3.up,-Speed*Time.deltaTime);
+			origin.RotateAround(origin.position, Vector3.up, -Speed * Time.deltaTime);
+		}
+	}
+
+	public void EnterGame()
+	{
+		inGame = true;
 	}
 }
