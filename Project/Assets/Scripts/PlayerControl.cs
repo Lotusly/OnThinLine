@@ -25,6 +25,8 @@ public class PlayerControl : MonoBehaviour
 
 	public bool twoDimensional = false;
 
+	private bool inGame = false;
+
 	public float control;
 
 	public bool controlable = true;
@@ -32,6 +34,9 @@ public class PlayerControl : MonoBehaviour
 	public bool living = true;
 
 	public List<Vector3> historyRecords;
+	
+	//------------test0--------------------
+	//public float lefttrigger, righttrigger;
 
 	// Use this for initialization
 	void Awake()
@@ -55,6 +60,15 @@ public class PlayerControl : MonoBehaviour
 	{
 		if (living)
 		{
+			if (inGame)
+			{
+				//lefttrigger = Input.GetAxis("LeftTrigger");
+				//righttrigger = Input.GetAxis("RightTrigger");
+				if (Mathf.Abs(Input.GetAxis("LeftTrigger")) > 0.9f && Mathf.Abs(Input.GetAxis("RightTrigger")) > 0.9f)
+				{
+					Restart();
+				}
+			}
 			if (controlable)
 			{
 				if (inDrum && drum != null && Input.GetButtonDown("Fire1"))
@@ -172,6 +186,7 @@ public class PlayerControl : MonoBehaviour
 
 	public void EnterGame()
 	{
+		inGame = true;
 		StartCoroutine(enterGame());
 	}
 	private IEnumerator enterGame()
