@@ -8,12 +8,18 @@ public class Menu : MonoBehaviour
 	[SerializeField] private GameObject[] toBeEnabled;
 	[SerializeField] private Vector3 startPosition;
 	[SerializeField] private History history;
-	
+	[SerializeField] private Music menuMusic;
+	public static Menu instance;
 
+
+	void Awake()
+	{
+		if (instance == null) instance = this;
+	}
 	// Use this for initialization
 	void Start ()
 	{
-		Time.timeScale = 1;
+		StartCoroutine(delayControl());
 	}
 	
 	// Update is called once per frame
@@ -33,8 +39,20 @@ public class Menu : MonoBehaviour
 		RootTransfer.instance.transform.position = startPosition;
 		RootTransfer.instance.transform.LookAt(RootTransfer.instance.transform.position+Vector3.forward);
 		RootTransfer.instance.EnterGame();
+		menuMusic.FadeOut();
 		Destroy(gameObject);
 
+	}
+
+	public void QuitGame()
+	{
+		Application.Quit();
+	}
+
+	private IEnumerator delayControl()
+	{
+		yield return new WaitForSecondsRealtime(0.5f);
+		PlayerControl.instance.EnableControl();
 	}
 
 	

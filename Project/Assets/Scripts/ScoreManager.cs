@@ -87,6 +87,7 @@ public class ScoreManager : MonoBehaviour
 	{
 		InBossBattle = true;
 	}
+	
 
 	public void Advance()
 	{
@@ -201,7 +202,7 @@ public class ScoreManager : MonoBehaviour
 	{
 		//Drum.instance.CleanMat();
 		//Guitar.instance.CleanMat();
-		PlayerControl.instance.controlable = false;
+		PlayerControl.instance.DisableControl();
 		PlayerControl.instance.living = false;
 		fail.enabled = true;
 		Time.timeScale = 0.25f;

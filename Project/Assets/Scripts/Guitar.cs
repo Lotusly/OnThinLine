@@ -18,8 +18,10 @@ public class Guitar : MonoBehaviour
 	private Coroutine followCor;
 	[SerializeField] private GameObject missle;
 	[SerializeField] private Transform missleParent;
+	public bool battling = false;
+	
 
-	private bool followDrum = false;
+	public bool followDrum = false;
 
 	// Use this for initialization
 	void Awake()
@@ -78,12 +80,12 @@ public class Guitar : MonoBehaviour
 
 	public void FlyAway()
 	{
-		cor=StartCoroutine("flyAway");
+		cor=StartCoroutine(flyAway());
 	}
 
 	private IEnumerator flyAway()
 	{
-		print("flyAway");
+		//print("flyAway");
 		yield return null;
 		transform.parent = RootTransfer.instance.transform;
 		while (Vector3.Distance(transform.localPosition, newPosition) > 0.1f)
@@ -93,14 +95,14 @@ public class Guitar : MonoBehaviour
 		}
 		GetComponent<Floating>().enabled = true;
 		yield return new WaitForSeconds(2);
-		if (!ScoreManager.instance.InBossBattle)
+		if (!battling)
 		{
-			print("not in battle");
+			//print("not in battle");
 			followDrum = true;
 		}
 		else
 		{
-			print("battle");
+			//print("battle");
 			Drum.instance.FindGuitarInDanger();
 
 		}
@@ -114,6 +116,7 @@ public class Guitar : MonoBehaviour
 	
 	public void EnterBattle()
 	{
+		battling = true;
 		cor = StartCoroutine("inBattle");
 		if(followCor!=null) StopCoroutine(followCor);
 		followDrum = false;
@@ -146,7 +149,7 @@ public class Guitar : MonoBehaviour
 	private void flyToDrum()
 	{
 		//newPosition = Drum.instance.transform.localPosition;
-		followCor=StartCoroutine(flyToDrumCor());
+		if(!battling)followCor=StartCoroutine(flyToDrumCor());
 	}
 
 	private IEnumerator flyToDrumCor()
@@ -165,7 +168,7 @@ public class Guitar : MonoBehaviour
 		}
 		GetComponent<Floating>().enabled = true;
 		GetComponent<Floating>().SetGoodOrigin();
-		followDrum = true;
+		if(!battling)followDrum = true;
 		Drum.instance.FindGuitarClose();
 	}
 

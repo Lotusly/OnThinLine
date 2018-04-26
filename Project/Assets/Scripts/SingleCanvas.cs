@@ -12,6 +12,7 @@ public class SingleCanvas : MonoBehaviour
 	[SerializeField] private Image final;
 	[SerializeField] private Image background;
 	[SerializeField] private Text[] instructions;
+	[SerializeField] private Text backMenuInstruction;
 	private Coroutine cor;
 
 	private void Awake()
@@ -49,21 +50,23 @@ public class SingleCanvas : MonoBehaviour
 
 	private IEnumerator fadeOut(bool withCG)
 	{
+		print("fade out with: "+(withCG?"true":"false"));
 		yield return null;
 		while (background.color.a < 1)
 		{
 			background.color=new Color(0,0,0,Mathf.Min(background.color.a+Time.deltaTime,1));
 			yield return new WaitForEndOfFrame();
 		}
-		cor = null;
+		
 		if (withCG)
 		{
-			showCG();
+			ShowCG();
 		}
 		else
 		{
 			SceneManager.LoadScene("Main");
 		}
+		cor = null;
 		//print("1");
 
 		//print("3");
@@ -72,7 +75,8 @@ public class SingleCanvas : MonoBehaviour
 
 	public void ShowCG()
 	{
-		if(cor==null)
+		
+		//if(cor==null)
 			cor=StartCoroutine(showCG());
 	}
 
@@ -87,8 +91,11 @@ public class SingleCanvas : MonoBehaviour
 		//print("2");
 		Camera.main.transform.parent = null;
 		SoundController.instance.transform.parent = null;
-		Destroy(PlayerControl.instance.transform.root.gameObject);
-		
+		PlayerControl.instance.transform.parent = null;
+		Destroy(RootTransfer.instance.gameObject);
+		PlayerControl.instance.EnableControl();
+		yield return new WaitForSeconds(10);
+		backMenuInstruction.enabled = true;
 	}
 
 	

@@ -21,19 +21,25 @@ public class PlayerControl : MonoBehaviour
 	private Vector3 speed = Vector3.zero;
 
 	private Node drum;
-	public bool inDrum;
+	private bool inDrum;
 
-	public bool twoDimensional = false;
+	//public bool twoDimensional = false;
 
 	private bool inGame = false;
 
-	public float control;
+	private float control;
 
-	public bool controlable = true;
+	private bool controlable = false;
 
 	public bool living = true;
 
 	public List<Vector3> historyRecords;
+	private enum Trinary
+	{
+		UNSET,ZERO,ONE
+	};
+
+	private Trinary leftTriggerLast = Trinary.UNSET, rightTriggerLast = Trinary.UNSET, leftTrigger = Trinary.UNSET, rightTrigger = Trinary.UNSET;
 	
 	//------------test0--------------------
 	//public float lefttrigger, righttrigger;
@@ -42,6 +48,7 @@ public class PlayerControl : MonoBehaviour
 	void Awake()
 	{
 		if (instance == null) instance = this;
+		
 	}
 	void Start ()
 	{
@@ -53,22 +60,36 @@ public class PlayerControl : MonoBehaviour
 		historyRecords = new List<Vector3>();
 		historyRecords.Add(history.GetPosition(0));
 		historyRecords.Add(history.GetPosition(1));
+	
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (living)
+		leftTrigger = (Mathf.Abs(Input.GetAxis("LeftTrigger"))>0.9f)?Trinary.ONE : Trinary.ZERO;
+		rightTrigger = (Mathf.Abs(Input.GetAxis("RightTrigger")) > 0.9f)?Trinary.ONE : Trinary.ZERO;
+		if (controlable)
 		{
-			if (inGame)
+			if ((leftTriggerLast.Equals(Trinary.ZERO) || rightTriggerLast.Equals(Trinary.ZERO)) &&
+			    leftTrigger.Equals(Trinary.ONE) && rightTrigger.Equals(Trinary.ONE))
 			{
-				//lefttrigger = Input.GetAxis("LeftTrigger");
-				//righttrigger = Input.GetAxis("RightTrigger");
-				if (Mathf.Abs(Input.GetAxis("LeftTrigger")) > 0.9f && Mathf.Abs(Input.GetAxis("RightTrigger")) > 0.9f)
+				if (inGame)
 				{
 					Restart();
 				}
+				else if (Menu.instance != null)
+				{
+					print("start game");
+					Menu.instance.StartGame();
+				}
 			}
+		}
+		leftTriggerLast = leftTrigger;
+		rightTriggerLast = rightTrigger;
+		if (living)
+		{
+			
+			
 			if (controlable)
 			{
 				if (inDrum && drum != null && Input.GetButtonDown("Fire1"))
@@ -159,6 +180,16 @@ public class PlayerControl : MonoBehaviour
 		SingleCanvas.instance.FadeOut(false);
 	}
 
+	public void EnableControl()
+	{
+		controlable = true;
+	}
+
+	public void DisableControl()
+	{
+		controlable = false;
+	}
+
 	private IEnumerator mustKill()
 	{
 		//print("enter mastkill");
@@ -173,7 +204,7 @@ public class PlayerControl : MonoBehaviour
 		Missle missle = gameObject.AddComponent<Missle>();
 		missle.SetMaxSpeed(10);
 		missle.SetTarget(Boss.instance.transform);
-		missle.SetAttack(3800);
+		missle.SetAttack(3700);
 		missle.SetInUse();
 	}
 

@@ -54,6 +54,7 @@ public class Boss : MonoBehaviour
 
 	public void ComeOut()
 	{
+		GetComponent<Renderer>().enabled = true;
 		state = 1;
 		comingOut = true;
 	}
