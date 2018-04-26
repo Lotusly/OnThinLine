@@ -29,8 +29,8 @@ public class RootTransfer : MonoBehaviour
 		if (inGame) transform.position += -Vector3.left * Speed * Time.deltaTime;
 		else
 		{
-			transform.RotateAround(origin.position,Vector3.up,-Speed*Time.deltaTime);
-			origin.RotateAround(origin.position, Vector3.up, -Speed * Time.deltaTime);
+			transform.RotateAround(origin.position,Vector3.up,-Speed*180/Mathf.PI/100*Time.deltaTime);
+			origin.RotateAround(origin.position, Vector3.up, -Speed*180/Mathf.PI/100 * Time.deltaTime);
 		}
 	}
 
