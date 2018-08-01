@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,8 +9,8 @@ public class SingleCanvas : MonoBehaviour
 	public static SingleCanvas instance;
 	[SerializeField] private Image final;
 	[SerializeField] private Image background;
-	[SerializeField] private Text[] instructions;
-	[SerializeField] private Text backMenuInstruction;
+	[SerializeField] private Text[] instructionsControllerMode;
+	[SerializeField] private Text[] instructionsMouseMode;
 	private Coroutine cor;
 
 	private void Awake()
@@ -37,9 +35,18 @@ public class SingleCanvas : MonoBehaviour
 
 	private IEnumerator showInstruction(int i)
 	{
-		instructions[i].enabled = true;
-		yield return new WaitForSeconds(6);
-		instructions[i].enabled = false;
+		if (PlayerControl.instance.controllerMode)
+		{
+			instructionsControllerMode[i].enabled = true;
+			yield return new WaitForSeconds(6);
+			instructionsControllerMode[i].enabled = false;
+		}
+		else
+		{
+			instructionsMouseMode[i].enabled = true;
+			yield return new WaitForSeconds(6);
+			instructionsMouseMode[i].enabled = false;
+		}
 	}
 
 	public void FadeOut(bool withCG)
@@ -64,6 +71,7 @@ public class SingleCanvas : MonoBehaviour
 		}
 		else
 		{
+			Time.timeScale = 1;
 			SceneManager.LoadScene("Main");
 		}
 		cor = null;
@@ -95,7 +103,10 @@ public class SingleCanvas : MonoBehaviour
 		Destroy(RootTransfer.instance.gameObject);
 		PlayerControl.instance.EnableControl();
 		yield return new WaitForSeconds(10);
-		backMenuInstruction.enabled = true;
+		if(PlayerControl.instance.controllerMode)
+			instructionsControllerMode[2].enabled = true;
+		else
+			instructionsMouseMode[2].enabled = true;
 	}
 
 	

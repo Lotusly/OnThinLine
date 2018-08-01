@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-
-
+using UnityEngine.UI;
 
 
 public class PlayerControl : MonoBehaviour
@@ -27,6 +25,13 @@ public class PlayerControl : MonoBehaviour
 
 	private bool inGame = false;
 
+	public bool controllerMode = true;
+	[SerializeField] private Text controlModeDisplay;
+	[SerializeField] private Text controlInstruction;
+	[SerializeField] private GameObject startButton; 
+	private float lineHeight;
+	private float pixelMultiplier;
+
 	private float control;
 
 	private bool controlable = false;
@@ -48,7 +53,8 @@ public class PlayerControl : MonoBehaviour
 	void Awake()
 	{
 		if (instance == null) instance = this;
-		
+		lineHeight = Camera.main.WorldToScreenPoint(transform.position).y;
+		pixelMultiplier = 1/(Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 1.05f).y - lineHeight);
 	}
 	void Start ()
 	{
@@ -62,12 +68,52 @@ public class PlayerControl : MonoBehaviour
 		historyRecords.Add(history.GetPosition(1));
 	
 	}
+
+	public void SwitchMode()
+	{
+		controllerMode = !controllerMode;
+		controlModeDisplay.text = controllerMode
+			? "XBox Controller"
+			: "Keyboard & Mouse";
+		controlInstruction.text = controllerMode
+			? "Press down both Left and Right Triggers to Start.\nDuring the game, you can use it to come back to menu."
+			: "During the game, to come back to menu,\npress down both Escape and Enter on the keyboard.";
+
+		if (!controllerMode)
+		{
+			lineHeight = Camera.main.WorldToScreenPoint(transform.position).y;
+			pixelMultiplier = 1 / (Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 1.05f).y - lineHeight);
+			startButton.SetActive(true);
+		}
+		else
+		{
+			startButton.SetActive(false);
+		}
+
+
+		// Clear Triggers
+		leftTrigger = Trinary.UNSET;
+		leftTriggerLast = Trinary.UNSET;
+		rightTrigger = Trinary.UNSET;
+		rightTriggerLast = Trinary.UNSET;
+	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		leftTrigger = (Mathf.Abs(Input.GetAxis("LeftTrigger"))>0.9f)?Trinary.ONE : Trinary.ZERO;
-		rightTrigger = (Mathf.Abs(Input.GetAxis("RightTrigger")) > 0.9f)?Trinary.ONE : Trinary.ZERO;
+		// TEST
+		//if (Input.GetMouseButtonDown(0))
+		//{
+		//	print(Input.mousePosition.y);
+		//}
+		// TEST END
+		
+		leftTrigger = 
+			(controllerMode?(Mathf.Abs(Input.GetAxis("LeftTrigger"))>0.9f):(Input.GetKey(KeyCode.Escape)) )
+				?Trinary.ONE : Trinary.ZERO;
+		rightTrigger = 
+			(controllerMode?(Mathf.Abs(Input.GetAxis("RightTrigger")) > 0.9f):(Input.GetKey(KeyCode.Return)) )
+			?Trinary.ONE : Trinary.ZERO;
 		if (controlable)
 		{
 			if ((leftTriggerLast.Equals(Trinary.ZERO) || rightTriggerLast.Equals(Trinary.ZERO)) &&
@@ -77,7 +123,7 @@ public class PlayerControl : MonoBehaviour
 				{
 					Restart();
 				}
-				else if (Menu.instance != null)
+				else if (Menu.instance != null && controllerMode)
 				{
 					print("start game");
 					Menu.instance.StartGame();
@@ -88,16 +134,15 @@ public class PlayerControl : MonoBehaviour
 		rightTriggerLast = rightTrigger;
 		if (living)
 		{
-			
-			
 			if (controlable)
 			{
-				if (inDrum && drum != null && Input.GetButtonDown("Fire1"))
+				if (inDrum && drum != null && (controllerMode?Input.GetButtonDown("Fire1") : Input.GetKeyDown(KeyCode.Space)))
 				{
 					hitDrum();
 					ScoreManager.instance.AddScore(1);
 				}
-				control = Input.GetAxisRaw("Vertical");
+				control = controllerMode?Input.GetAxisRaw("Vertical"):(Input.mousePosition.y-lineHeight)*pixelMultiplier;
+				control = Math.Min(1f,Math.Max(-1f,control));
 				//----------------1 dimensional control speed-----------------------
 				//if (!twoDimensional)
 				//{
@@ -124,7 +169,7 @@ public class PlayerControl : MonoBehaviour
 				//}
 
 				//--------------------control position-----------------------------------
-				Vector3 expectedPosition = Vector3.up * (Input.GetAxisRaw("Vertical") - original) * 1.05f;
+				Vector3 expectedPosition = Vector3.up * (control - original) * 1.05f;
 				transform.localPosition += (expectedPosition - transform.localPosition) * Time.deltaTime * sinsitive;
 				//-----------------end control position-------------------------------------------
 			}
